@@ -8,3 +8,7 @@ atom.symlink/storage
 atom.symlink/themes
 
 git/gitconfig.local.symlink
+
+vim/vim.symlink/backups/
+vim/vim.symlink/bundle/
+!vim/vim.symlink/bundle/repos/github.com/Shougo/dein.vim/
