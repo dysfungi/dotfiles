@@ -1,3 +1,6 @@
+[![Tasks Ready](https://badge.waffle.io/defrank/dotfiles.svg?label=ready&title=Ready)](http://waffle.io/defrank/dotfiles?label=ready)
+[![Tasks in Progress](https://badge.waffle.io/defrank/dotfiles.svg?label=wip&title=WIP)](http://waffle.io/defrank/dotfiles?label=wip)
+
 # holman does dotfiles
 
 Your dotfiles are how you personalize your system. These are mine.
