@@ -5,3 +5,4 @@
 [submodule "modules/githooks"]
 	path = modules/githooks
 	url = git@github.com:defrank/githooks.git
+    branch = master
