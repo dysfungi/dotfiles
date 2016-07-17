@@ -1,0 +1,9 @@
+#!/usr/bin/env sh 
+
+if [ "$1" = 'usage' ]; then
+    echo '    edit'
+    exit 0
+fi
+shift
+
+exec "$EDITOR" "$TODO_FILE"
