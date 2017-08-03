@@ -424,7 +424,7 @@ highlight Comment ctermfg=darkgrey
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Turn backup off, since most stuff is in SVN, git etc anyway...
-set backupdir=~/.vim/backups
+set backupdir=~/.local/vim/backups
 set noswapfile
 set nobackup
 set nowb
@@ -440,8 +440,8 @@ set complete=.,w,b,u,U,t,i,d   " do lots of scanning on tab completion
 " Keep undo history across sessions, by storing in file.
 " Only works all the time.
 if has('persistent_undo')
-  silent !mkdir -p ~/.vim/backups > /dev/null 2>&1
-  set undodir=~/.vim/backups
+  silent !mkdir -p ~/.local/vim/backups > /dev/null 2>&1
+  set undodir=~/.local/vim/backups
   set undofile
 else
   set noundofile
