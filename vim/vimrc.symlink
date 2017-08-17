@@ -90,38 +90,38 @@ endif
 filetype off                     " required? was in Vundle...
 
 " Required:
-set runtimepath^=~/.vim/bundle/repos/github.com/Shougo/dein.vim
+"set runtimepath^=~/.vim/bundle/repos/github.com/Shougo/dein.vim
 
 " Required:
-call dein#begin(expand('~/.vim/bundle'))
+call plug#begin(expand('~/.vim/plugged'))  "dein#begin(expand('~/.vim/bundle'))
 
 " Let dein manage dein
 " Required:
-call dein#add('Shougo/dein.vim')
+Plug 'Shougo/dein.vim'
 
 " Add or remove your plugins here:
-call dein#add('Shougo/neosnippet.vim')
-call dein#add('Shougo/neosnippet-snippets')
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
 
 " You can specify revision/branch/tag.
-"call dein#add('Shougo/vimshell.vim', {'rev': '3787e5'})
-call dein#add('Shougo/vimshell.vim')
+"Plug 'Shougo/vimshell.vim', {'rev': '3787e5'}
+Plug 'Shougo/vimshell.vim'
 
 " Dein Extras:
-call dein#add('Shougo/vimproc.vim', {'build': 'make'})
+Plug 'Shougo/vimproc.vim', {'build': 'make'}
 
 
 """"
 "" Generic:
-call dein#add('L9')                            " utilities for programming in VIM
-call dein#add('Gundo')                         " Graphical undo
+Plug 'L9'                            " utilities for programming in VIM
+Plug 'Gundo'                         " Graphical undo
 
 "" Buffers And File System:
-"call dein#add('fholgado/minibufexpl.vim')      " buffer explorer
-call dein#add('jlanzarotta/bufexplorer')       
-"call dein#add('FuzzyFinder')                   " vim-scripts/FuzzyFinder; depends on `L9`
-"call dein#add('wincent/Command-T')             " fast file navigation; requires Ruby; git://git.wincent.com/command-t.git
-call dein#add('ctrlpvim/ctrlp.vim')
+"Plug 'fholgado/minibufexpl.vim'      " buffer explorer
+Plug 'jlanzarotta/bufexplorer'
+"Plug 'FuzzyFinder'                   " vim-scripts/FuzzyFinder; depends on `L9`
+"Plug 'wincent/Command-T'             " fast file navigation; requires Ruby; git://git.wincent.com/command-t.git
+Plug 'ctrlpvim/ctrlp.vim'
 	"let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 	let g:ctrlp_custom_ignore = {
         \ 'dir':  '\v[\/]\.(git|hg|svn)$',
@@ -144,35 +144,38 @@ call dein#add('ctrlpvim/ctrlp.vim')
     elseif executable('find')
         let g:ctrlp_user_command = 'find %s -type f'
     endif
-call dein#add('scrooloose/nerdtree')
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     map <F2> :NERDTreeToggle<CR>
-call dein#add('Xuyuanp/nerdtree-git-plugin')
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 "" Formatters:
-call dein#add('godlygeek/tabular')
+Plug 'godlygeek/tabular'
 
 "" Tab Completion:
-"call dein#add('ervandew/supertab')             " provides tab completion
+"Plug 'ervandew/supertab'             " provides tab completion
 
 "" Productivity:
-call dein#add('tpope/vim-surround')             " Easily manipulate surrounding stuff
-call dein#add('tpope/vim-fugitive')             " Git in VIM
-call dein#add('msanders/snipmate.vim')          " Boilerplate code
-"call dein#add('TaskList.vim')
+Plug 'tpope/vim-surround'             " Easily manipulate surrounding stuff
+Plug 'tpope/vim-fugitive'             " Git in VIM
+Plug 'msanders/snipmate.vim'          " Boilerplate code
+"Plug 'TaskList.vim'
     " TODO and FIXME marks
     "map <leader>v <Plug>TaskList
     "map T :TaskList<CR>
     "map P :TlistToggle<CR>
-call dein#add('freitass/todo.txt-vim')
+Plug 'freitass/todo.txt-vim'
     map <leader>t :tabe ~/Dropbox/todo/todo.txt<CR>
     map <leader>T :!todotxt listall<CR>
 
 "" Syntax Checking:
-call dein#add('scrooloose/syntastic')
+Plug 'scrooloose/syntastic'
     set statusline+=%#warningmsg#
     set statusline+=%{SyntasticStatuslineFlag()}
     set statusline+=%*
 
+    let g:syntastic_python_checkers = ['python3', 'flake8']
+    let g:syntastic_python_flake8_exec = 'python3'
+    let g:syntastic_python_flake8_args = ['-m', 'flake8']
     let g:syntastic_always_populate_loc_list = 1
     let g:syntastic_auto_loc_list = 1
     let g:syntastic_check_on_open = 0
@@ -180,56 +183,56 @@ call dein#add('scrooloose/syntastic')
 
 
 "" News Feeds:
-call dein#add('ryanss/vim-hackernews')
-call dein#add('erthalion/vim-reddit')
+Plug 'ryanss/vim-hackernews'
+Plug 'erthalion/vim-reddit'
 
 "" Programming Languages:
 " Python:
-"call dein#add('klen/python-mode')
-"call dein#add('davidhalter/jedi-vim')
-call dein#add('alfredodeza/pytest.vim')
+"Plug 'klen/python-mode'
+"Plug 'davidhalter/jedi-vim'
+Plug 'alfredodeza/pytest.vim'
     " visual history browser
     "let g:pyflakes_use_quickfix = 0
-"call dein#add('rkulla/pydiction')
+"Plug 'rkulla/pydiction'
     let g:pydiction_location='~/.vim/bundle/pydiction/complete-dict'
-"call dein#add('fs111/pydoc.vim')
+"Plug 'fs111/pydoc.vim'
     " integrates pydoc viewing and searching into Python documentation
-"call dein#add('kevinw/pyflakes-vim')
+"Plug 'kevinw/pyflakes-vim'
     " highlights common Python errors
     "noremap <buffer><silent> z u:PyflakesUpdate<CR>
     "noremap <buffer><silent> Z <C-R>:PyflakesUpdate<CR>
-call dein#add('vim-scripts/pep8')
+Plug 'vim-scripts/pep8'
     " PEP8 style conventions
     let g:pep8_map='<F8>'
 
 " Javascript:
-call dein#add('vim-scripts/IndentAnything')
-call dein#add('pangloss/vim-javascript')
-call dein#add('jpo/vim-railscasts-theme')
+Plug 'vim-scripts/IndentAnything'
+Plug 'pangloss/vim-javascript'
+Plug 'jpo/vim-railscasts-theme'
 
 " HTML CSS:
-call dein#add('mattn/emmet-vim')
+Plug 'mattn/emmet-vim'
 
 " Haskell:
-call dein#add('lukerandall/haskellmode-vim')
+Plug 'lukerandall/haskellmode-vim'
     au Bufenter *.hs compiler ghc
     let g:haddock_browser='open'
     let g:haddock_browser_callformat='%s %s'
-call dein#add('eagletmt/ghcmod-vim')
-call dein#add('dag/vim2hs')
+Plug 'eagletmt/ghcmod-vim'
+Plug 'dag/vim2hs'
     "let g:haskell_conceal_wide=1
-call dein#add('ujihisa/neco-ghc')
+Plug 'ujihisa/neco-ghc'
 "Plugin 'kana/vim-textobj-indent'
-call dein#add('Twinside/vim-haskellConceal')
+Plug 'Twinside/vim-haskellConceal'
 autocmd BufWritePost *.hs GhcModCheckAndLintAsync
 " Yesod:
-"call dein#add('pbrisbin/html-template-syntax')
-call dein#add('pbrisbin/vim-syntax-shakespeare')
+"Plug 'pbrisbin/html-template-syntax'
+Plug 'pbrisbin/vim-syntax-shakespeare'
 
 """"
 
 " Required:
-call dein#end()
+call plug#end()  "dein#end()
 
 " If you want to install not installed plugins on startup.
 "if dein#check_install()
@@ -881,6 +884,7 @@ augroup END
 "   [M               Jump on previous class or method (normal, visual, operator modes)
 "   ]M               Jump on next class or method (normal, visual, operator modes)
 " 
+let g:pymode_python = 'python3'
 let g:pymode_rope = 0
 "
 " Documentation
