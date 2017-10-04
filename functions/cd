@@ -1,0 +1,22 @@
+cd () {
+    local PREVPWD="$PWD"
+    builtin cd "$@"
+    local VENV="venv" BASEDIR="$PWD"
+    if [ "$PREVPWD" != "$PWD" ]; then
+        if [[ -n "$PREVENV_PATH" ]]; then
+            if [ "`echo "$PWD" | grep -c $PREVENV_PATH`" = "0" ]; then
+                deactivate
+                PREVENV_PATH=
+            fi
+        fi
+        if [[ -z "$PREVENV_PATH" ]]; then
+            while [[ ! -d "$BASEDIR/$VENV" ]] && [[ "$BASEDIR" != '/' ]]; do
+                BASEDIR="$(dirname "$BASEDIR")"
+            done
+            if [[ -f "$BASEDIR/$VENV/bin/activate" ]]; then
+                PREVENV_PATH="$BASEDIR"
+                source "$BASEDIR/$VENV/bin/activate"
+            fi
+        fi
+    fi
+}
