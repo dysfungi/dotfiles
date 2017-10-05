@@ -70,10 +70,6 @@
         pager = less -FX
 [apply]
         whitespace = nowarn
-[mergetool]
-        keepBackup = false
-[difftool]
-        prompt = false
 [help]
         autocorrect = 1
 [push]
@@ -85,7 +81,18 @@
 [pull]
         rebase = true
 [merge]
-        conflictstyle = diff3
+    # http://vim.wikia.com/wiki/A_better_Vimdiff_Git_mergetool
+    tool = diffconflicts
+    conflictStyle = diff3
+[mergetool]
+	keepBackup = false
+[mergetool "diffconflicts"]
+	cmd = diffconflicts vim $BASE $LOCAL $REMOTE $MERGED
+	trustExitCode = true
+[diff]
+    tool = vimdiff2
+[difftool]
+    prompt = false
 [branch]
         autosetupmerge = true
         autosetuprebase = always
