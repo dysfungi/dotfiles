@@ -1,0 +1,41 @@
+# Tests whether the given argument is callable in the present path.
+iscmd() {
+    # Determine if given command exists.
+    if hash $1 &>/dev/null || type $1 &>/dev/null; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+# Runs a given command and its arguments if the command exists in the
+# present path.
+#
+# TODO(derek at frank dot sh): determine best name: try, attempt,
+# try2run
+try() {
+    # Run given command if it exists.
+    # Using 'hash' to test for command existence provides the benefit of
+    # hashing the commands location for future use, which provides a
+    # slight optimization.  Using 'type' with option '-P' searches just
+    # the path.  Using 'command -v' is POSIX compliance and safer for
+    # 'sh' scripts.
+    #
+    # 'hash' is used as the primary for performance, however, since
+    # builtin hash fails for builtin commands and aliases, a lazy
+    # evaluation fallback is used.
+    if hash $1 2>/dev/null; then
+        $@
+    elif type $1 &>/dev/null; then
+        local t="$(type $1)"
+        if [[ "$t" =~ ' alias' ]]; then
+            eval $@
+        else
+            $@
+        fi
+    else
+        return 1
+    fi
+
+    return $?
+}
