@@ -43,7 +43,7 @@ brew 'sqlite'
 brew 'squid'
 brew 'todo-txt'
 brew 'the_silver_searcher'
-brew 'tmux --with-override-system-vi'
+brew 'tmux', args: ['with-override-system-vi']
 brew 'unrar'
 brew 'vim'
 brew 'wget'
