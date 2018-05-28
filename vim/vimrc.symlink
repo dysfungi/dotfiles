@@ -487,8 +487,8 @@ set smarttab               " Be smart when using tabs
 set colorcolumn=72
 set linebreak
 set textwidth=72
-"set wrap
-set nowrap
+set wrap
+"set nowrap
 
 " Prevent # from indenting to column 0
 "inoremap # X^H#
