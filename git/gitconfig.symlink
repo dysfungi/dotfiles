@@ -102,3 +102,5 @@
         rebase = true
 [grep]
         lineNumber = true
+[protocol "keybase"]
+	allow = always
