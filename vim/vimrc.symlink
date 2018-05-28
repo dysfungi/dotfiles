@@ -113,8 +113,8 @@ Plug 'Shougo/vimproc.vim', {'build': 'make'}
 
 """"
 "" Generic:
-Plug 'L9'                            " utilities for programming in VIM
-Plug 'Gundo'                         " Graphical undo
+"Plug 'L9'                            " utilities for programming in VIM
+"Plug 'Gundo'                         " Graphical undo
 
 "" Buffers And File System:
 "Plug 'fholgado/minibufexpl.vim'      " buffer explorer
@@ -183,7 +183,7 @@ Plug 'scrooloose/syntastic'
 
 
 "" News Feeds:
-Plug 'ryanss/vim-hackernews'
+Plug 'dansomething/vim-hackernews'
 Plug 'erthalion/vim-reddit'
 
 "" Programming Languages:
@@ -213,6 +213,10 @@ Plug 'jpo/vim-railscasts-theme'
 " HTML CSS:
 Plug 'mattn/emmet-vim'
 
+" YAML:
+Plug 'chase/vim-ansible-yaml'
+    let g:ansible_options = {'ignore_blank_lines': 0}
+
 " Haskell:
 Plug 'lukerandall/haskellmode-vim'
     au Bufenter *.hs compiler ghc
@@ -228,6 +232,9 @@ autocmd BufWritePost *.hs GhcModCheckAndLintAsync
 " Yesod:
 "Plug 'pbrisbin/html-template-syntax'
 Plug 'pbrisbin/vim-syntax-shakespeare'
+
+" Atlassian Confluence
+Plug 'coddingtonbear/confluencewiki.vim'
 
 """"
 
