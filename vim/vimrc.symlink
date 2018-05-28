@@ -173,9 +173,13 @@ Plug 'scrooloose/syntastic'
     set statusline+=%{SyntasticStatuslineFlag()}
     set statusline+=%*
 
+    "let g:syntastic_python_checkers = ['python', 'flake8']
     let g:syntastic_python_checkers = ['python3', 'flake8']
+    "let g:syntastic_python_flake8_exec = 'python'
     let g:syntastic_python_flake8_exec = 'python3'
     let g:syntastic_python_flake8_args = ['-m', 'flake8']
+    let g:syntastic_python_pylint_exec = 'python'
+    let g:syntastic_python_pylint_args = ['-m', 'pylint', '--errors-only']
     let g:syntastic_always_populate_loc_list = 1
     let g:syntastic_auto_loc_list = 1
     let g:syntastic_check_on_open = 0
