@@ -1,7 +1,7 @@
 # grc overides for ls
 #   Made possible through contributions from generous benefactors like
 #   `brew install coreutils`
-if iscmd gls; then
+if hash gls &>/dev/null; then
     alias ls='gls --color=auto'
 elif try ls --color &>/dev/null; then
     alias ls='ls --color=auto'

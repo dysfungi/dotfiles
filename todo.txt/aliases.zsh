@@ -1,10 +1,10 @@
-if iscmd todo.sh; then
+if hash todo.sh &>/dev/null; then
     alias t='todo.sh'
-elif iscmd todotxt; then
+elif hash todotxt &>/dev/null; then
     alias t='todotxt'
 fi
 
-if iscmd t; then
+if type t &>/dev/null; then
     alias tl='t listall -@Readz'
     alias tlc='t listcon'
     alias tlp='t listproj'
