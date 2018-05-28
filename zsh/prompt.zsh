@@ -55,8 +55,9 @@ directory_name() {
 }
 
 battery_status() {
-  if [[ $(sysctl -n hw.model) == *"Book"* ]]
-  then
+  if [[ "$(uname -s)" != 'Darwin' ]]; then
+    echo "$(date) "
+  elif [[ $(sysctl -n hw.model) == *"Book"* ]]; then
     $DOTFILES/bin/battery-status
   fi
 }
