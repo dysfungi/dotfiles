@@ -1,22 +1,24 @@
+# Source closest virtual environment, ``venv``, if exists in any parent
+# directory.
 cd () {
-    local PREVPWD="$PWD"
+    local venv_dir="venv" prevpwd="$PWD"
+
     builtin cd "$@"
-    local VENV="venv" BASEDIR="$PWD"
-    if [ "$PREVPWD" != "$PWD" ]; then
-        if [[ -n "$PREVENV_PATH" ]]; then
-            if [ "`echo "$PWD" | grep -c $PREVENV_PATH`" = "0" ]; then
-                deactivate
-                PREVENV_PATH=
-            fi
-        fi
-        if [[ -z "$PREVENV_PATH" ]]; then
-            while [[ ! -d "$BASEDIR/$VENV" ]] && [[ "$BASEDIR" != '/' ]]; do
-                BASEDIR="$(dirname "$BASEDIR")"
-            done
-            if [[ -f "$BASEDIR/$VENV/bin/activate" ]]; then
-                PREVENV_PATH="$BASEDIR"
-                source "$BASEDIR/$VENV/bin/activate"
-            fi
+
+    if [ "$prevpwd" != "$PWD" ]; then
+        local base_dir="$PWD"
+
+        # Always try to deactivate for nested virtual environments.
+        deactivate &>/dev/null
+
+        # Find the closest parent directory with ``venv``.
+        while [[ ! -d "$base_dir/$venv_dir" ]] && [[ "$base_dir" != '/' ]]; do
+            base_dir="$(dirname "$base_dir")"
+        done
+
+        # Source virtual environment if it exists.
+        if [[ -f "$base_dir/$venv_dir/bin/activate" ]]; then
+            source "$base_dir/$venv_dir/bin/activate"
         fi
     fi
 }
