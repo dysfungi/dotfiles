@@ -26,6 +26,7 @@
         la = log --graph --decorate --pretty=oneline --abbrev-commit --all
         lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
         lo = log --decorate --pretty=oneline --abbrev-commit
+        lfo = log --pretty=full --reverse --show-notes=* -p --abbrev-commit origin/master..
         rdiff = reflog --all -p
         ls = ls-files -cdmo --exclude-standard
         compactlog = log --pretty=format:"%h%x09%an%x09%ad%x09%s" --date=short
@@ -42,6 +43,7 @@
         deletetag = !sh -c \"git push --delete origin ${1} && git tag -d ${1}\"
         #abbrev-commit = !sh -c \"git rev-list -n1 --abbrev-commit $($@)\"
         abbrev-commit = !git rev-list -n1 --abbrev-commit $(test -z \"$@\" && echo HEAD || echo $@)
+        full-commit = !git rev-list -n1 $(test -z \"$@\" && echo HEAD || echo $@)
         abbrev-count = !sh -c 'git rev-list --all --abbrev=0 --abbrev-commit | awk \"{ a[length] += 1 } END { for (len in a) print len, a[len] }\"'
         origin = branch -r --list "origin/*"
         hist = log --graph --pretty=format:'%Cred%h%Creset -%C(magenta)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
