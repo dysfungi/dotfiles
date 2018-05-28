@@ -1,0 +1,15 @@
+xmodmap ~/.Xmodmap
+
+xrandr --output DP-2 --off --output HDMI-1 --off
+xrandr --output DVI-I-1 --primary --auto --rotate right --brightness 0.6 \
+    --output HDMI-1 --auto --right-of DVI-I-1 --brightness 0.6 \
+    --output DP-2 --auto --right-of HDMI-1 --brightness 0.6
+
+tmux new-session -s xautolock -d \
+    xautolock \
+        -time 2 \
+        -locker "slock" \
+        -notify 10 \
+        -notifier "notify-send 'Screen' -t 5000 -i gtk-dialog-info 'Locking in 10 seconds'"
+
+tmux new-session -s dropboxd -d dropbox start
