@@ -717,7 +717,7 @@ map <leader>q :e ~/buffer<cr>
 map <leader>pp :setlocal paste!<cr>
 
 " No line numbers in mail
-au FileType mail  set nonu fo=tcrqw spelllang=en spell
+au FileType mail setlocal nonu fo=tcrqw spelllang=en spell
 
 " Auto load extensions for different file types
 if has('autocmd')
@@ -743,8 +743,8 @@ if has('autocmd')
 
   " improved formatting for markdown
   " http://plasticboy.com/markdown-vim-mode/
-  autocmd BufRead *.mkd set ai formatoptions=tcroqn2 comments=n:>
-  autocmd BufRead ~/.blog/entries/* set ai formatoptions=tcroqn2 comments=n:>
+  autocmd BufRead *.mkd setlocal ai formatoptions=tcroqn2 comments=n:>
+  autocmd BufRead ~/.blog/entries/* setlocal ai formatoptions=tcroqn2 comments=n:>
 endif
 
 
@@ -764,44 +764,50 @@ au FileType gitcommit setlocal spell textwidth=72 colorcolumn=72
 
 
 " C language
-au FileType c,h  set ai sw=4 ts=4 noexpandtab cindent omnifunc=ccomplete#Complete
+au FileType c,h  setlocal ai sw=4 ts=4 noexpandtab cindent omnifunc=ccomplete#Complete
 au FileType c,h  color pablo
 
 " Python
-au FileType python set colorcolumn=80
-au FileType python set tw=80
-au FileType python set ai expandtab
-autocmd FileType python set omnifunc=pythoncomplete#Complete
+au FileType python setlocal colorcolumn=80
+au FileType python setlocal tw=80
+au FileType python setlocal ai expandtab
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
     "inoremap <C-space> <C-x><C-o>
-autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-autocmd BufRead *.py set nocindent
+autocmd BufRead *.py setlocal smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+autocmd BufRead *.py setlocal nocindent
 "autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
 
 " Web: js, html, css, php
 " https://codissimo.wordpress.com/2011/01/11/enhancing-vim-as-an-htmljscssphp-editor/
 "
 "   Color scheme and font
-au FileType javascript,php set colorcolumn=80
-au FileType javascript,php set tw=80
-au FileType html,css set colorcolumn=100
-au FileType html,css set tw=100
+au FileType javascript,php setlocal colorcolumn=80
+au FileType javascript,php setlocal tw=80
+au FileType html,css setlocal colorcolumn=100
+au FileType html,css setlocal tw=100
 autocmd FileType javascript,html,css,php colorscheme railscasts
-autocmd FileType javascript,html,css,php set gfn=Monaco\ 10
+autocmd FileType javascript,html,css,php setlocal gfn=Monaco\ 10
 "   Highlight current line
-autocmd FileType javascript,html,css,php autocmd InsertLeave * set nocursorline
-autocmd FileType javascript,html,css,php autocmd InsertLeave * set cursorline
+autocmd FileType javascript,html,css,php autocmd InsertLeave * setlocal nocursorline
+autocmd FileType javascript,html,css,php autocmd InsertLeave * setlocal cursorline
 autocmd FileType javascript,html,css,php autocmd InsertLeave * highlight CursorLine ctermbg=black cterm=NONE
 "   Indentation
-"autocmd FileType html,css set sw=2 ts=2 sts=2
-autocmd FileType javascript,html,css,php set smartindent cinwords=if,else,for,while,do,try,catch,finally,with,function,case,var
+"autocmd FileType html,css setlocal sw=2 ts=2 sts=2
+autocmd FileType javascript,html,css,php setlocal smartindent cinwords=if,else,for,while,do,try,catch,finally,with,function,case,var
 "   Autocompletion
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 "   Line numbers
-autocmd FileType javascript,css,php set number
+autocmd FileType javascript,css,php setlocal number
 "   Incremental Search
-autocmd FileType javascript,css,php set incsearch
+autocmd FileType javascript,css,php setlocal incsearch
+
+" YAML
+au FileType ansible,yaml setlocal sw=2 ts=2 sts=2 et
+
+" Confluence Wiki
+au FileType confluencewiki
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
