@@ -23,7 +23,7 @@ brew 'go'
 brew 'grc'
 brew 'jp2a'
 brew 'jq'
-brew 'libcaca', args: ['with-imlib2']
+brew 'libcaca'
 brew 'libgit2'
 brew 'openssh'
 brew 'openssl'
