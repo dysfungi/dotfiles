@@ -419,6 +419,9 @@ if has("gui_running")
         "set columns=100
     "endif
 endif
+nmap <leader>cm :colorscheme morning<cr>:highlight CursorLine ctermbg=224<cr>
+nmap <leader>cx :colorscheme xterm16<cr>:highlight CursorLine ctermbg=224<cr>
+nmap <leader>cc :colorscheme delek<cr>:highlight CursorLine ctermbg=224<cr>
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
