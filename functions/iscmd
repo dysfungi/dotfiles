@@ -1,0 +1,9 @@
+iscmd() {
+    # Tests whether the given argument is callable in the present path.
+    # Determine if given command exists.
+    if hash $1 &>/dev/null || type $1 &>/dev/null; then
+        return 0
+    else
+        return 1
+    fi
+}
