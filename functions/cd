@@ -5,7 +5,9 @@ cd () {
 
     builtin cd "$@"
 
-    if [ "$prevpwd" != "$PWD" ]; then
+    if [ -x "$HOME/.pyenv/bin/pyenv" ]; then
+        return $?
+    elif [ "$prevpwd" != "$PWD" ]; then
         local base_dir="$PWD"
 
         # Always try to deactivate for nested virtual environments.
