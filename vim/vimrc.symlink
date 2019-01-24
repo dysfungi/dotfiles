@@ -810,7 +810,7 @@ autocmd FileType javascript,css,php setlocal incsearch
 au FileType ansible,yaml setlocal sw=2 ts=2 sts=2 et
 
 " Confluence Wiki
-au FileType confluencewiki
+au FileType confluencewiki setlocal tw=120 colorcolumn=120
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
