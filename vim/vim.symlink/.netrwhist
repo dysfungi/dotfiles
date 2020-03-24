@@ -1,4 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
-let g:netrw_dirhist_1='/home/derek/Code/py-gcloud-utils'
-let g:netrw_dirhist_2='/home/derek/Code/py-gcloud-utils/fanai_gcloud_utils'
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_1='/Users/dmf/Code/defrank/sugoku/sudoku'

@@ -173,10 +173,13 @@ Plug 'scrooloose/syntastic'
     set statusline+=%{SyntasticStatuslineFlag()}
     set statusline+=%*
 
-    "let g:syntastic_python_checkers = ['python', 'flake8']
-    let g:syntastic_python_checkers = ['python3', 'flake8']
-    "let g:syntastic_python_flake8_exec = 'python'
-    let g:syntastic_python_flake8_exec = 'python3'
+    if has('mac')
+        let g:syntastic_python_checkers = ['python', 'flake8']
+        let g:syntastic_python_flake8_exec = 'python'
+    else
+        let g:syntastic_python_checkers = ['python3', 'flake8']
+        let g:syntastic_python_flake8_exec = 'python3'
+    endif
     let g:syntastic_python_flake8_args = ['-m', 'flake8']
     let g:syntastic_python_pylint_exec = 'python'
     let g:syntastic_python_pylint_args = ['-m', 'pylint', '--errors-only']
@@ -188,7 +191,7 @@ Plug 'scrooloose/syntastic'
 
 "" News Feeds:
 Plug 'dansomething/vim-hackernews'
-Plug 'erthalion/vim-reddit'
+"Plug 'erthalion/vim-reddit'  " Requires +python
 
 "" Programming Languages:
 " Python:
@@ -208,6 +211,9 @@ Plug 'alfredodeza/pytest.vim'
 Plug 'vim-scripts/pep8'
     " PEP8 style conventions
     let g:pep8_map='<F8>'
+
+" Go:
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Javascript:
 Plug 'vim-scripts/IndentAnything'
@@ -355,7 +361,7 @@ set tm=500
 
 " mouse settings
 "set mouse=                    " disable mouse support in all modes
-set mouse=a
+set mouse=vi
 set mousehide                 " hide the mouse when typing text
 
 
@@ -749,6 +755,30 @@ if has('autocmd')
   autocmd BufRead *.mkd setlocal ai formatoptions=tcroqn2 comments=n:>
   autocmd BufRead ~/.blog/entries/* setlocal ai formatoptions=tcroqn2 comments=n:>
 endif
+
+function! WhichEnv() abort
+	if has('win64') || has('win32') || has('win16')
+        return 'WINDOWS'
+    else
+       return toupper(substitute(system('uname'), '\n', '', ''))
+        " if (WhichEnv() =~# 'LINUX')
+        " if (WhichEnv() =~# 'DARWIN')
+    endif
+endfunction
+
+
+if executable('gdate')
+    command Date read !gdate --iso-8601=seconds
+else
+    command Date read !date --iso-8601=seconds
+endif
+
+" Autoload $MYVIMRC
+" https://superuser.com/a/417997
+augroup myvimrc
+    au!
+    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+augroup END
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
