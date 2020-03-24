@@ -5,7 +5,7 @@ elif hash todotxt &>/dev/null; then
 fi
 
 if type t &>/dev/null; then
-    alias tl='t listall -@Readz'
+    alias tl='t ls'
     alias tlc='t listcon'
     alias tlp='t listproj'
     alias ta='t add'
