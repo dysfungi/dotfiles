@@ -7,7 +7,8 @@ alias sitenamd="grep '^[a-z].*[^aeiou]ed$' /usr/share/dict/words | shuf -n 1 | s
 # IP addresses
 function hax {
     msg=$1
-    let lnstr=$(expr length "$msg")-1
+    #let lnstr=$(expr length "$msg")-1
+    let lnstr=$(echo -n "$msg" | wc -c | tr -d ' ')-1
     for (( i=0; i <= $lnstr; i++ ))
     do
         echo -n "${msg:$i:1}"
