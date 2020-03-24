@@ -1,0 +1,13 @@
+function certget() {
+    local domain="${1:?domain required}"
+    local as_plaintext="${2:-1}"
+
+    local cmd=(openssl s_client -servername "$domain" -connect "$domain:443")
+
+    if [[ "$as_plaintext" -ne 0 ]]; then
+        "$cmd[@]" 2>/dev/null </dev/null | openssl x509 -text
+    else
+        "$cmd[@]" </dev/null 
+    fi
+    return $?
+}
