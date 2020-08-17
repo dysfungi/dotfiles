@@ -48,7 +48,7 @@ brew 'sqlite'
 brew 'squid'
 brew 'todo-txt'
 brew 'the_silver_searcher'
-brew 'tmux', args: ['with-override-system-vi']
+brew 'tmux'
 brew 'unrar'
 brew 'vim'
 brew 'wget'
