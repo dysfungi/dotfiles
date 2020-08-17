@@ -6,6 +6,12 @@
 #   https://github.com/mathiasbynens/dotfiles/blob/master/.macos
 #
 # Run ./set-defaults.sh and you'll be good to go.
+#
+# References:
+#   https://pawelgrzybek.com/change-macos-user-preferences-via-command-line/
+
+# Set dark mode.
+defaults write -globalDomain AppleInterfaceStyle Dark
 
 # Disable press-and-hold for keys in favor of key repeat.
 defaults write -globalDomain ApplePressAndHoldEnabled -bool false
@@ -18,6 +24,9 @@ defaults write com.apple.Finder FXPreferredViewStyle Nlsv
 
 # Show the ~/Library folder.
 chflags nohidden ~/Library
+
+# Show hidden files.
+defaults write com.apple.finder AppleShowAllFiles -string YES
 
 # Set a really fast key repeat.
 defaults write -globalDomain KeyRepeat -int 1
