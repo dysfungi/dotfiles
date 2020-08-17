@@ -10,8 +10,26 @@
 # References:
 #   https://pawelgrzybek.com/change-macos-user-preferences-via-command-line/
 
-# Set dark mode.
+# System Preferences
+# | General
+#   | Appearance: dark mode
 defaults write -globalDomain AppleInterfaceStyle Dark
+#   | Accent color: 3/green
+defaults write -globalDomain AppleAccentColor -int 3
+#   | Highlight color: green
+defaults write -globalDomain AppleHighlightColor "0.752941 0.964706 0.678431 Green"
+# | Mission Control
+#   | Disable automatically rearranging Spaces on recent use.
+defaults write com.apple.dock mru-spaces -bool false
+# | Trackpad
+#   | Point & Click
+#     | Lookup and data detectors: three finger tap
+defaults write -globalDomain com.apple.trackpad.forceClick -bool false
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerTapGesture -int 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerTapGesture -int 2
+#   | Scroll & Zoom
+#     | Scroll direction: 0/inverted
+defaults write -globalDomain com.apple.swipescrolldirection -bool false
 
 # Disable press-and-hold for keys in favor of key repeat.
 defaults write -globalDomain ApplePressAndHoldEnabled -bool false
