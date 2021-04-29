@@ -6,3 +6,9 @@ if [[ -d "$BREWBASE" ]]; then
     BREWSHARE="$BREWBASE/share"
     [[ -d "$BREWSHARE" ]] && export XDG_DATA_DIRS="$XDG_DATA_DIRS:$BREWSHARE"
 fi
+
+# gnu-sed
+GNUBIN="/usr/local/opt/gnu-sed/libexec/gnubin"
+if [[ -d "$GNUBIN" ]]; then
+    export PATH="$GNUBIN:$PATH"
+fi
