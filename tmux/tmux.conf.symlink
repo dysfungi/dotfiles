@@ -1,1 +1,12 @@
+set-option -g mode-keys vi
 set-option -g history-limit 10000
+
+bind c new-window -c "#{pane_current_path}"
+bind \" split-window -v -c "#{pane_current_path}"
+bind % split-window -h -c "#{pane_current_path}"
+
+# pane movement shortcuts (same as vim)
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
