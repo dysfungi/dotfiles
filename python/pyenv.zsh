@@ -3,15 +3,15 @@ PYENV_BIN="$PYENV_ROOT/bin"
 PYENV_SHIMS="$PYENV_ROOT/shims"
 
 if hash pyenv &>/dev/null; then
-    EXECUTABLE="$(which pyenv)"
+    PYENV_EXEC="$(which pyenv)"
 elif [[ -d "$PYENV_BIN" ]]; then
     export PATH="$PYENV_BIN:$PATH"
-    EXECUTABLE="$PYENV_BIN/pyenv"
+    PYENV_EXEC="$PYENV_BIN/pyenv"
 fi
 
-if [[ -x "$EXECUTABLE" ]]; then
-    eval "$($EXECUTABLE init -)"
-    eval "$($EXECUTABLE virtualenv-init -)"
+if [[ -x "$PYENV_EXEC" ]]; then
+    eval "$($PYENV_EXEC init -)"
+    eval "$($PYENV_EXEC virtualenv-init -)"
 fi
 
 #export PYENV_VIRTUALENV_DISABLE_PROMPT=1
