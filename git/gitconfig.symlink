@@ -37,7 +37,7 @@
         branchlog = !sh -c \"git log `git oldest-ancestor`..\"
         fm = merge --no-ff
         bm = merge --no-ff
-        discard = checkout -- 
+        discard = checkout --
         undo = reset --soft HEAD~1
         delete = !sh -c \"git push ${1} :${2} && git remote prune ${1}\"
         deletetag = !sh -c \"git push --delete origin ${1} && git tag -d ${1}\"
@@ -54,10 +54,12 @@
         files = "!sh -c \"git diff-tree --no-commit-id --name-only -r \"$1$(test -n \"${1##*..*}\" && echo \"..HEAD\")\"\""
         exists = branch -r --contains
         g = grep --break --heading --line-number
-        current = !git rev-parse --abbrev-ref HEAD
+        current = rev-parse --abbrev-ref HEAD
         undo-rm = rev-list -n 1 HEAD --
         fixupstream = !sh -c \"git branch --set-upstream-to='${2:-origin}/${1}' '${1}'\"
         untrack = branch --unset-upstream
+        pf = push --force-with-lease
+        find = !find . -not -path "*/\\.git/*" "${@}"
 [color]
         diff = auto
         status = auto
