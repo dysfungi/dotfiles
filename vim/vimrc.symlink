@@ -26,14 +26,14 @@ runtime! vimrc_example.vim
 " and configure vim to your own liking!
 ""
 ""
-"" Maintainer: 
+"" Maintainer:
 ""       Amir Salihefendic
 ""       http://amix.dk - amix@amix.dk
 ""
-"" Version: 
+"" Version:
 ""       5.0 - 29/05/12 15:43:36
 ""
-"" Blog_post: 
+"" Blog_post:
 ""       http://amix.dk/blog/post/19691#The-ultimate-Vim-configuration-on-Github
 ""
 "" Awesome_version:
@@ -46,7 +46,7 @@ runtime! vimrc_example.vim
 "" Syntax_highlighted:
 ""       http://amix.dk/vim/vimrc.html
 ""
-"" Raw_version: 
+"" Raw_version:
 ""       http://amix.dk/vim/vimrc.txt
 ""
 ""
@@ -167,40 +167,324 @@ Plug 'freitass/todo.txt-vim'
     map <leader>t :tabe ~/Dropbox/todo/todo.txt<CR>
     map <leader>T :!todotxt listall<CR>
 
+"" Language Servers (LSPs)
+""" vim-lsp
+"Plug 'prabirshrestha/vim-lsp'
+    if executable('bash-language-server')
+      augroup LspBash
+        autocmd!
+        autocmd User lsp_setup call lsp#register_server({
+              \ 'name': 'bash-language-server',
+              \ 'cmd': {server_info->[&shell, &shellcmdflag, 'bash-language-server start']},
+              \ 'allowlist': ['sh'],
+              \ })
+      augroup END
+    endif
+    if executable('docker-langserver')
+        au User lsp_setup call lsp#register_server({
+            \ 'name': 'docker-langserver',
+            \ 'cmd': {server_info->[&shell, &shellcmdflag, 'docker-langserver --stdio']},
+            \ 'allowlist': ['dockerfile'],
+            \ })
+    endif
+    if executable('gopls')
+        au User lsp_setup call lsp#register_server({
+            \ 'name': 'gopls',
+            \ 'cmd': {server_info->['gopls']},
+            \ 'allowlist': ['go'],
+            \ })
+        autocmd BufWritePre *.go LspDocumentFormatSync
+    endif
+    if executable('haskell-language-server-wrapper')
+        au User lsp_setup call lsp#register_server({
+            \ 'name': 'haskell-language-server-wrapper',
+            \ 'cmd': {server_info->['haskell-language-server-wrapper', '--lsp']},
+            \ 'root_uri':{server_info->lsp#utils#path_to_uri(
+            \     lsp#utils#find_nearest_parent_file_directory(
+            \         lsp#utils#get_buffer_path(),
+            \         ['.cabal', 'stack.yaml', 'cabal.project', 'package.yaml', 'hie.yaml', '.git'],
+            \     ))},
+            \ 'allowlist': ['haskell', 'lhaskell'],
+            \ })
+    endif
+    if executable('html-languageserver')
+      au User lsp_setup call lsp#register_server({
+        \ 'name': 'html-languageserver',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'html-languageserver --stdio']},
+        \ 'allowlist': ['html'],
+      \ })
+    endif
+    if executable('typescript-language-server')
+        au User lsp_setup call lsp#register_server({
+          \ 'name': 'javascript support using typescript-language-server',
+          \ 'cmd': { server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+          \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
+          \ 'allowlist': ['javascript', 'javascript.jsx', 'javascriptreact']
+          \ })
+    endif
+    if executable('pyls')
+        " pip install python-language-server
+        au User lsp_setup call lsp#register_server({
+            \ 'name': 'pyls',
+            \ 'cmd': {server_info->['pyls']},
+            \ 'allowlist': ['python'],
+            \ 'workspace_config': {'pyls': {'plugins': {'pydocstyle': {'enabled': v:true}}}},
+            \ })
+    endif
+    if executable('rls')
+        au User lsp_setup call lsp#register_server({
+            \ 'name': 'rls',
+            \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
+            \ 'workspace_config': {'rust': {'clippy_preference': 'on'}},
+            \ 'allowlist': ['rust'],
+            \ })
+    endif
+    if executable('typescript-language-server')
+        au User lsp_setup call lsp#register_server({
+            \ 'name': 'typescript-language-server',
+            \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+            \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
+            \ 'allowlist': ['typescript', 'typescript.tsx'],
+            \ })
+    endif
+    if executable('ocaml-language-server')
+        au User lsp_setup call lsp#register_server({
+            \ 'name': 'ocaml-language-server',
+            \ 'cmd': {server_info->[&shell, &shellcmdflag, 'ocaml-language-server --stdio']},
+            \ 'allowlist': ['reason', 'ocaml'],
+            \ })
+    endif
+    if executable('vim-language-server')
+      augroup LspVim
+        autocmd!
+        autocmd User lsp_setup call lsp#register_server({
+            \ 'name': 'vim-language-server',
+            \ 'cmd': {server_info->['vim-language-server', '--stdio']},
+            \ 'allowlist': ['vim'],
+            \ 'initialization_options': {
+            \   'vimruntime': $VIMRUNTIME,
+            \   'runtimepath': &rtp,
+            \ }})
+      augroup END
+    endif
+    if executable('yaml-language-server')
+      augroup LspYaml
+       autocmd!
+       autocmd User lsp_setup call lsp#register_server({
+           \ 'name': 'yaml-language-server',
+           \ 'cmd': {server_info->['yaml-language-server', '--stdio']},
+           \ 'allowlist': ['yaml', 'yaml.ansible'],
+           \ 'workspace_config': {
+           \   'yaml': {
+           \     'validate': v:true,
+           \     'hover': v:true,
+           \     'completion': v:true,
+           \     'customTags': [],
+           \     'schemas': {},
+           \     'schemaStore': { 'enable': v:true },
+           \   }
+           \ }
+           \})
+      augroup END
+    endif
+
+    function! s:on_lsp_buffer_enabled() abort
+        setlocal omnifunc=lsp#complete
+        setlocal signcolumn=yes
+        if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+        nmap <buffer> gd <plug>(lsp-definition)
+        nmap <buffer> gs <plug>(lsp-document-symbol-search)
+        nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+        nmap <buffer> gr <plug>(lsp-references)
+        nmap <buffer> gi <plug>(lsp-implementation)
+        nmap <buffer> gdt <plug>(lsp-type-definition)
+        nmap <buffer> <leader>rn <plug>(lsp-rename)
+        nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+        nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+        nmap <buffer> N <plug>(lsp-hover)
+        inoremap <buffer> <expr><c-f> lsp#scroll(+4)
+        inoremap <buffer> <expr><c-d> lsp#scroll(-4)
+
+        let g:lsp_format_sync_timeout = 1000
+        autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
+
+        " refer to doc to add more commands
+    endfunction
+
+    augroup lsp_install
+        au!
+        " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+        autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+    augroup END
+"Plug 'mattn/vim-lsp-settings'
+"Plug 'prabirshrestha/asyncomplete.vim'
+    inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+    inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+"Plug 'prabirshrestha/asyncomplete-lsp.vim'
+" https://github.com/prabirshrestha/vim-lsp/wiki/Servers-Go
+Plug 'piec/vim-lsp-gopls'
+
+""" ALE
+Plug 'dense-analysis/ale'
+    nmap <silent> <C-[> <Plug>(ale_previous_wrap)
+    nmap <silent> <C-]> <Plug>(ale_next_wrap)
+    let g:ale_fix_on_save = 1
+    let g:ale_open_list = 1
+    let g:ale_set_loclist = 1
+    let g:ale_set_quickfix = 1
+    let g:ale_fixers = {
+        \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+        \ 'javascript': ['eslint'],
+        \ 'python': ['autopep8', 'black', 'isort'],
+        \ }
+    let g:ale_linters = {
+        \ 'python': ['bandit', 'flake8', 'mypy', 'pyright'],
+        \ }
+    let g:ale_python_mypy_options = '--follow-imports=silent --ignore-missing-imports --scripts-are-modules'
+
 "" Syntax Checking:
-Plug 'scrooloose/syntastic'
+"Plug 'scrooloose/syntastic'
+    " https://github.com/vim-syntastic/syntastic#3-recommended-settings
     set statusline+=%#warningmsg#
     set statusline+=%{SyntasticStatuslineFlag()}
     set statusline+=%*
-
-    if has('mac')
-        let g:syntastic_python_checkers = ['python', 'flake8']
-        let g:syntastic_python_flake8_exec = 'python'
-    else
-        let g:syntastic_python_checkers = ['python3', 'flake8']
-        let g:syntastic_python_flake8_exec = 'python3'
-    endif
-    let g:syntastic_python_flake8_args = ['-m', 'flake8']
-    let g:syntastic_python_pylint_exec = 'python'
-    let g:syntastic_python_pylint_args = ['-m', 'pylint', '--errors-only']
     let g:syntastic_always_populate_loc_list = 1
     let g:syntastic_auto_loc_list = 1
     let g:syntastic_check_on_open = 0
     let g:syntastic_check_on_wq = 0
+
+    "let g:syntastic_debug = 17
+
+    let g:syntastic_python_checkers = ['flake8', 'mypy']
+    let g:syntastic_python_mypy_args = ['--follow-imports=silent', '--ignore-missing-imports', '--scripts-are-modules']
+    let g:syntastic_python_pylint_args = ['--errors-only']
 
 
 "" News Feeds:
 Plug 'dansomething/vim-hackernews'
 "Plug 'erthalion/vim-reddit'  " Requires +python
 
+"" Markup:
+
+" Atlassian Confluence:
+Plug 'coddingtonbear/confluencewiki.vim'
+
+" General:
+Plug 'greyblake/vim-preview'
+
+" HTML CSS:
+"Plug 'mattn/emmet-vim'
+
+" Markdown:
+Plug 'mzlogin/vim-markdown-toc'
+    let g:vmt_list_item_char = '-'
+"Plug 'SidOfc/mkdx'
+    if !has('autocmd')
+        echo "autocmd is required to enable g:mkdx#settings.toc.update_on_write"
+    endif
+    let g:mkdx#settings = { 'highlight': { 'enable': 1, 'frontmatter': { 'json': 1, 'yaml': 1 } } }
+    let g:mkdx#settings = {
+                        \ 'image_extension_pattern': 'a\?png\|jpe\?g\|gif',
+                        \ 'gf_on_steroids':          0,
+                        \ 'restore_visual':          1,
+                        \ 'enter':                   { 'enable': 0,
+                        \                              'shift': 0,
+                        \                              'o': 1,
+                        \                              'shifto': 0,
+                        \                              'malformed': 1 },
+                        \ 'map':                     { 'prefix': '<leader>',
+                        \                              'enable': 1 },
+                        \ 'tokens':                  { 'enter':  ['-', '*', '>'],
+                        \                              'bold': '**',
+                        \                              'italic': '*',
+                        \                              'strike': '',
+                        \                              'list': '-',
+                        \                              'fence': '',
+                        \                              'header': '#' },
+                        \ 'checkbox':                { 'toggles': [' ', '-', 'x'],
+                        \                              'update_tree': 2,
+                        \                              'initial_state': ' ' },
+                        \ 'toc':                     { 'text': "TOC",
+                        \                              'list_token': '-',
+                        \                              'position': 0,
+                        \                              'update_on_write': 0,
+                        \                              'details': {
+                        \                                 'enable': 0,
+                        \                                 'summary': '{{toc.text}}',
+                        \                                 'nesting_level': -1,
+                        \                                 'child_count': 5,
+                        \                                 'child_summary': 'show {{count}} items',
+                        \                              },
+                        \                            },
+                        \ 'table':                   { 'divider': '|',
+                        \                              'header_divider': '-',
+                        \                              'align': {
+                        \                                 'left':    [],
+                        \                                 'right':   [],
+                        \                                 'center':  [],
+                        \                                 'default': 'center',
+                        \                              },
+                        \                            },
+                        \ 'links':                   { 'external': {
+                        \                                 'enable':     0,
+                        \                                 'timeout':    3,
+                        \                                 'host':       '',
+                        \                                 'relative':   1,
+                        \                                 'user_agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/9001.0.0000.000 vim-mkdx/1.10.0',
+                        \                              },
+                        \                              'fragment': {
+                        \                                 'jumplist': 1,
+                        \                                 'complete': 1,
+                        \                              },
+                        \                            },
+                        \ 'highlight':               {
+                        \                              'enable': 0,
+                        \                              'frontmatter': {
+                        \                                'yaml': 1,
+                        \                                'toml': 0,
+                        \                                'json': 0,
+                        \                              },
+                        \                            },
+                        \ 'auto_update':             { 'enable': 1 },
+                        \ 'fold':                    { 'enable': 0,
+                        \                              'components': ['toc', 'fence'] },
+                        \ }
+Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+    let g:instant_markdown_slow = 1
+    let g:instant_markdown_autoscroll = 0
+
+" YAML:
+Plug 'chase/vim-ansible-yaml'
+    let g:ansible_options = {'ignore_blank_lines': 0}
+
 "" Programming Languages:
+
 " Go:
-Plug 'fatih/vim-go'
+"Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+" Javascript:
+"Plug 'vim-scripts/IndentAnything'
+"Plug 'pangloss/vim-javascript'
+"Plug 'jpo/vim-railscasts-theme'
+
+" Haskell:
+"Plug 'lukerandall/haskellmode-vim'
+    au Bufenter *.hs compiler ghc
+    let g:haddock_browser='open'
+    let g:haddock_browser_callformat='%s %s'
+"Plug 'eagletmt/ghcmod-vim'
+"Plug 'dag/vim2hs'
+    "let g:haskell_conceal_wide=1
+"Plug 'ujihisa/neco-ghc'
+"Plugin 'kana/vim-textobj-indent'
+"Plug 'Twinside/vim-haskellConceal'
+"autocmd BufWritePost *.hs GhcModCheckAndLintAsync
 
 " Python:
 "Plug 'klen/python-mode'
 "Plug 'davidhalter/jedi-vim'
-Plug 'alfredodeza/pytest.vim'
+"Plug 'alfredodeza/pytest.vim'
     " visual history browser
     "let g:pyflakes_use_quickfix = 0
 "Plug 'rkulla/pydiction'
@@ -211,45 +495,19 @@ Plug 'alfredodeza/pytest.vim'
     " highlights common Python errors
     "noremap <buffer><silent> z u:PyflakesUpdate<CR>
     "noremap <buffer><silent> Z <C-R>:PyflakesUpdate<CR>
-Plug 'vim-scripts/pep8'
+"Plug 'vim-scripts/pep8'
     " PEP8 style conventions
     let g:pep8_map='<F8>'
+Plug 'jmcantrell/vim-virtualenv'
+    let g:virtualenv_auto_activate = 1
 
-" Go:
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
-" Javascript:
-Plug 'vim-scripts/IndentAnything'
-Plug 'pangloss/vim-javascript'
-Plug 'jpo/vim-railscasts-theme'
-
-" HTML CSS:
-Plug 'mattn/emmet-vim'
-
-" YAML:
-Plug 'chase/vim-ansible-yaml'
-    let g:ansible_options = {'ignore_blank_lines': 0}
-
-" Haskell:
-Plug 'lukerandall/haskellmode-vim'
-    au Bufenter *.hs compiler ghc
-    let g:haddock_browser='open'
-    let g:haddock_browser_callformat='%s %s'
-Plug 'eagletmt/ghcmod-vim'
-Plug 'dag/vim2hs'
-    "let g:haskell_conceal_wide=1
-Plug 'ujihisa/neco-ghc'
-"Plugin 'kana/vim-textobj-indent'
-Plug 'Twinside/vim-haskellConceal'
-autocmd BufWritePost *.hs GhcModCheckAndLintAsync
-" Yesod:
-"Plug 'pbrisbin/html-template-syntax'
-Plug 'pbrisbin/vim-syntax-shakespeare'
-
-" Atlassian Confluence
-Plug 'coddingtonbear/confluencewiki.vim'
+" Shell:
+"Plug 'itspriddle/vim-shellcheck'
 
 """"
+
+Plug 'rbtnn/vim-game_engine'
+Plug 'rbtnn/vim-mario'
 
 " Required:
 call plug#end()  "dein#end()
@@ -375,7 +633,7 @@ set mousehide                 " hide the mouse when typing text
 " Ignore case when searching
 set ignorecase
 
-" When searching try to be smart about cases 
+" When searching try to be smart about cases
 set smartcase
 
 " Highlight search results
@@ -473,6 +731,12 @@ else
   set noundofile
 endif
 
+" Relative directory commands
+"cnoreabbrev Redit edit %:p:h/
+command -complete=file_in_path -nargs=? Redit edit %:p:h/<args>
+command -complete=file_in_path -nargs=? Rsplit split %:p:h/<args>
+command -complete=file_in_path -nargs=? Rvsplit vsplit %:p:h/<args>
+command -complete=file_in_path -nargs=? Rtabedit tabedit %:p:h/<args>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
@@ -513,7 +777,7 @@ set listchars=tab:>-,eol:¬
 " Folds
 set foldmethod=indent   "fold based on indent
 set foldnestmax=3       "deepest fold is 3 levels
-set nofoldenable        "dont fold by default 
+set nofoldenable        "dont fold by default
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -569,7 +833,7 @@ map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 " Switch CWD to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
-" Specify the behavior when switching between buffers 
+" Specify the behavior when switching between buffers
 try
   set switchbuf=useopen,usetab,newtab
   set stal=2
@@ -585,8 +849,13 @@ autocmd BufReadPost *
 set viminfo^=%
 
 " Automatically change window's cwd to file's dir
-set autochdir
-
+" WARNING: The following makes it a pain to use with Syntactic mypy
+" https://stackoverflow.com/a/1709267
+"if exists('+autochdir')
+"    set autochdir
+"else
+"    autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
+"endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Status line
@@ -839,11 +1108,14 @@ autocmd FileType javascript,css,php setlocal number
 "   Incremental Search
 autocmd FileType javascript,css,php setlocal incsearch
 
-" YAML
-au FileType ansible,yaml setlocal sw=2 ts=2 sts=2 et
-
 " Confluence Wiki
 au FileType confluencewiki setlocal tw=120 colorcolumn=120
+
+" Markdown
+au FileType markdown setlocal shiftwidth=2 tabstop=4 softtabstop=2
+
+" YAML
+au FileType ansible,yaml setlocal sw=2 ts=2 sts=2 et
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -926,7 +1198,8 @@ augroup END
 " Activate rope
 "
 " Keys:
-"   K                Show python docs
+"   ~K                Show python docs~
+"   N                Show python docs
 "   <C-space>        Rope autocomplete
 "   <C-c>g           Rope goto definition
 "   <C-c>d           Rope show documentation
@@ -936,7 +1209,7 @@ augroup END
 "   ]]               Jump on next class or function (normal, visual, operator modes)
 "   [M               Jump on previous class or method (normal, visual, operator modes)
 "   ]M               Jump on next class or method (normal, visual, operator modes)
-" 
+"
 let g:pymode_python = 'python3'
 let g:pymode_rope = 0
 "
