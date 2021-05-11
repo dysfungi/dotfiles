@@ -7,8 +7,14 @@ if [[ -d "$BREWBASE" ]]; then
     [[ -d "$BREWSHARE" ]] && export XDG_DATA_DIRS="$XDG_DATA_DIRS:$BREWSHARE"
 fi
 
-# gnu-sed
-GNUBIN="/usr/local/opt/gnu-sed/libexec/gnubin"
-if [[ -d "$GNUBIN" ]]; then
-    export PATH="$GNUBIN:$PATH"
-fi
+GNUBINS=(
+    "/usr/local/opt/coreutils/libexec/gnubin"
+    "/usr/local/opt/grep/libexec/gnubin"
+    "/usr/local/opt/gnu-sed/libexec/gnubin"
+)
+
+for GNUBIN in "${GNUBINS[@]}"; do
+    if [[ -d "$GNUBIN" ]]; then
+        export PATH="$GNUBIN:$PATH"
+    fi
+done
