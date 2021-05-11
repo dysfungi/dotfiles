@@ -60,6 +60,7 @@
         untrack = branch --unset-upstream
         pf = push --force-with-lease
         find = !find . -not -path "*/\\.git/*" "${@}"
+        changed-files = diff --name-only --no-ext-diff
 [color]
         diff = auto
         status = auto
