@@ -109,3 +109,5 @@
         lineNumber = true
 [protocol "keybase"]
 	allow = always
+[init]
+	defaultBranch = main
