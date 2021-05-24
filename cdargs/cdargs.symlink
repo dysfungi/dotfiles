@@ -1,3 +1,5 @@
+box /Users/dmf/Dropbox
+notes /Users/dmf/Dropbox/notes
 docs /Users/dmf/Documents
 code /Users/dmf/Code
 play /Users/dmf/Code/playground
@@ -6,8 +8,7 @@ rust /Users/dmf/Code/playground/rust
 
 www /Users/dmf/Code/defrank.github.io
 
-.dot /Users/dmf/.dotfiles
-olddot /Users/dmf/Code/dotfiles
+dot $HOME/.dotfiles
 
 frankish /Users/dmf/Code/frankish
 pet-api /Users/dmf/Code/frankish/petiquette/api
