@@ -1,3 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =3
-let g:netrw_dirhist_1='/Users/dmf/Code/defrank/sugoku/sudoku'
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/Users/dfrank/Code/lot/api-service/lotapi/riotstatus'
+let g:netrw_dirhist_3='/Users/dfrank/Code/lot/api-service/lotapi'
+let g:netrw_dirhist_2='/Users/dfrank/Code/lot/api-service/lotapi/riotstatus'
+let g:netrw_dirhist_1='/Users/dfrank/Code/lot/api-service/tests/riotstatus'
+let g:netrw_dirhist_0='/Users/dfrank/Code/lot/api-service/lotapi/queue_monitor'
+let g:netrw_dirhist_9='/Users/dfrank/Code/lot/api-service/lotapi'
+let g:netrw_dirhist_8='/Users/dfrank/Code/lot/api-service/riotstatus-ingest/tests/unit/riotstatus_ingest/data'
+let g:netrw_dirhist_7='/Users/dfrank/Code/lot/api-service/riotstatus-ingest/tests/unit/riotstatus_ingest'
+let g:netrw_dirhist_6='/Users/dfrank/Code/lot/api-service/riotstatus-ingest/tests/unit'
+let g:netrw_dirhist_5='/Users/dfrank/Code/lot/api-service/riotstatus-ingest/tests'
