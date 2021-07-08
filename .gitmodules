@@ -2,3 +2,6 @@
 	path = vim/vim.symlink/bundle/repos/github.com/Shougo/dein.vim
 	url = git@github.com:Shougo/dein.vim.git
     branch = master
+[submodule "todo.txt/todo.symlink/actions.d/add"]
+	path = todo.txt/todo.symlink/actions.d/add
+	url = git@github.com:defrank/todotxt_cli_date_add.git
