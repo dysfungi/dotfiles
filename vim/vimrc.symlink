@@ -173,6 +173,7 @@ Plug 'freitass/todo.txt-vim'
 Plug 'dense-analysis/ale'
     nmap <silent> <C-[> <Plug>(ale_previous_wrap)
     nmap <silent> <C-]> <Plug>(ale_next_wrap)
+    let g:ale_completion_autoimport = 1
     let g:ale_cursor_detail = 0
     let g:ale_echo_cursor = 1
     let g:ale_echo_msg_format = '[%severity%:%linter%] %code: %%s'
@@ -182,18 +183,25 @@ Plug 'dense-analysis/ale'
     let g:ale_open_list = 1
     let g:ale_set_balloons = 0
     let g:ale_set_highlights = 1
-    let g:ale_set_loclist = 0
-    let g:ale_set_quickfix = 1
+    let g:ale_set_loclist = 1
+    let g:ale_set_quickfix = 0
     let g:ale_set_signs = 1
     let g:ale_fixers = {
         \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-        \ 'javascript': ['eslint'],
+        \ 'javascript': ['eslint', 'prettier'],
         \ 'python': ['autopep8', 'black', 'isort'],
+        \ 'typescript': ['eslint', 'prettier'],
         \ }
     let g:ale_linters = {
         \ 'python': ['bandit', 'flake8', 'mypy', 'pyright'],
         \ }
+    let g:ale_javascript_eslint_options = '--fix --max-warnings=0'
     let g:ale_python_mypy_options = '--follow-imports=silent --ignore-missing-imports --scripts-are-modules'
+    " :help g:ale_open_list
+    augroup CloseLoclistWindowGroup
+      autocmd!
+      autocmd QuitPre * if empty(&buftype) | lclose | endif
+    augroup END
 
 "" Syntax Checking:
 "Plug 'scrooloose/syntastic'
