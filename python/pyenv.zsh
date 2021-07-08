@@ -10,6 +10,9 @@ elif [[ -d "$PYENV_BIN" ]]; then
 fi
 
 if [[ -x "$PYENV_EXEC" ]]; then
+    if pyenv init --path &>/dev/null; then
+        eval "$(pyenv init --path)"
+    fi
     eval "$($PYENV_EXEC init -)"
     eval "$($PYENV_EXEC virtualenv-init -)"
 fi
