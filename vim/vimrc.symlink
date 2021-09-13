@@ -312,9 +312,10 @@ Plug 'mzlogin/vim-markdown-toc'
                         \ 'fold':                    { 'enable': 0,
                         \                              'components': ['toc', 'fence'] },
                         \ }
-Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
-    let g:instant_markdown_slow = 1
+Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'}
     let g:instant_markdown_autoscroll = 0
+    let g:instant_markdown_autostart = 1
+    let g:instant_markdown_slow = 1
 
 " YAML:
 Plug 'chase/vim-ansible-yaml'
