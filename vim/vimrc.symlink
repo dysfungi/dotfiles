@@ -188,11 +188,13 @@ Plug 'dense-analysis/ale'
     let g:ale_set_signs = 1
     let g:ale_fixers = {
         \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+        \ 'go': ['gofmt'],
         \ 'javascript': ['eslint', 'prettier'],
         \ 'python': ['autopep8', 'black', 'isort'],
         \ 'typescript': ['eslint', 'prettier'],
         \ }
     let g:ale_linters = {
+        \ 'go': ['golint', 'go vet'],
         \ 'python': ['bandit', 'flake8', 'mypy', 'pyright'],
         \ }
     let g:ale_javascript_eslint_options = '--fix --max-warnings=0'
