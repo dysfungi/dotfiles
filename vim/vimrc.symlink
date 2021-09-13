@@ -331,6 +331,9 @@ Plug 'chase/vim-ansible-yaml'
 "Plug 'pangloss/vim-javascript'
 "Plug 'jpo/vim-railscasts-theme'
 
+" Justfile:
+Plug 'NoahTheDuke/vim-just'
+
 " Haskell:
 "Plug 'lukerandall/haskellmode-vim'
     au Bufenter *.hs compiler ghc
