@@ -20,3 +20,7 @@ fi
 #export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PYENV_VIRTUALENV_VERBOSE_ACTIVATE=1
 export PATH
+
+# https://github.com/pyenv/pyenv/issues/1737#issuecomment-764506047
+# export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/bzip2/lib"
+# export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/bzip2/include"
