@@ -90,25 +90,11 @@ endif
 filetype off                     " required? was in Vundle...
 
 " Required:
-"set runtimepath^=~/.vim/bundle/repos/github.com/Shougo/dein.vim
-
-" Required:
-call plug#begin(expand('~/.vim/plugged'))  "dein#begin(expand('~/.vim/bundle'))
-
-" Let dein manage dein
-" Required:
-Plug 'Shougo/dein.vim'
+call plug#begin(expand('~/.vim/plugged'))
 
 " Add or remove your plugins here:
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
-
-" You can specify revision/branch/tag.
-"Plug 'Shougo/vimshell.vim', {'rev': '3787e5'}
-Plug 'Shougo/vimshell.vim'
-
-" Dein Extras:
-Plug 'Shougo/vimproc.vim', {'build': 'make'}
+"Plug 'Shougo/neosnippet.vim'
+"Plug 'Shougo/neosnippet-snippets'
 
 
 """"
@@ -124,7 +110,7 @@ Plug 'jlanzarotta/bufexplorer'
 Plug 'ctrlpvim/ctrlp.vim'
 	"let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 	let g:ctrlp_custom_ignore = {
-        \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+        \ 'dir':  '\v[\/]\.(git|hg|svn|venv|node_modules)$',
         \ 'file': '\v\.(exe|so|dll)$',
         \ 'link': 'some_bad_symbolic_links',
     \ }
@@ -802,6 +788,9 @@ inoremap ; ;<C-g>u
 inoremap { {<C-g>u
 inoremap } }<C-g>u
 
+" https://stackoverflow.com/questions/51388353/vim-changes-into-replace-mode-on-startup
+nnoremap <esc>^[ <esc>^[
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vimgrep searching and cope displaying
@@ -917,6 +906,9 @@ augroup myvimrc
     au!
     au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
 augroup END
+
+command CopyFilePath let @" = expand("%")
+command CopyFileAbsPath let @" = expand("%:p")
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -1109,3 +1101,6 @@ let g:pymode_folding = 0
 set ofu=syntaxcomplete#Complete
 "autocmd FileType python set
 set tags+=$HOME/.vim/tags/python.ctags
+
+" Fuzzyfinder
+set rtp+=/usr/local/opt/fzf
