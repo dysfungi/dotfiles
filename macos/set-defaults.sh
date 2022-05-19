@@ -134,3 +134,8 @@ defaults write -globalDomain WebKitDeveloperExtras -bool true
 
 log 0 'Clearing caches...'
 killall cfprefsd
+
+# Nevermind, it disables the media key entirely...
+# log 0 'Disabling Music/iTunes media keys...'
+# https://www.reddit.com/r/MacOS/comments/m7d75t/comment/gstta58/?utm_source=share&utm_medium=web2x&context=3
+# launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist
