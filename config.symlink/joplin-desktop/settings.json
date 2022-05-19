@@ -11,23 +11,31 @@
 			{
 				"key": "sideBar",
 				"visible": true,
-				"width": 176
+				"width": 161
 			},
 			{
 				"key": "noteList",
 				"visible": true,
-				"width": 172
+				"width": 181
 			},
 			{
 				"key": "tempContainer-2gdXn6x21hlFVI6h9lT5cr",
 				"children": [
+					{
+						"key": "plugin-view-joplin.plugin.benji.favorites-favorites.panel",
+						"context": {
+							"pluginId": "joplin.plugin.benji.favorites"
+						},
+						"visible": true,
+						"height": 40
+					},
 					{
 						"key": "plugin-view-joplin.plugin.note.tabs-note.tabs.panel",
 						"context": {
 							"pluginId": "joplin.plugin.note.tabs"
 						},
 						"visible": true,
-						"height": 71
+						"height": 70
 					},
 					{
 						"key": "editor",
@@ -51,17 +59,19 @@
 						"context": {
 							"pluginId": "com.github.joplin.kanban"
 						},
-						"visible": false
+						"visible": true
 					}
 				],
-				"visible": false
+				"visible": true,
+				"width": 1191
 			},
 			{
 				"key": "plugin-view-joplin.plugin.alondmnt.history-panel-history",
 				"context": {
 					"pluginId": "joplin.plugin.alondmnt.history-panel"
 				},
-				"visible": false
+				"visible": false,
+				"width": 259
 			},
 			{
 				"key": "tempContainer-dE2iUPhWagIs2wXA8plDZj",
@@ -71,7 +81,8 @@
 						"context": {
 							"pluginId": "com.gitlab.BeatLink.joplin-plugin-agenda"
 						},
-						"visible": false
+						"visible": false,
+						"height": 857
 					},
 					{
 						"key": "plugin-view-com.DanteCoder.NoteVariables-panel_1",
