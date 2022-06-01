@@ -52,14 +52,14 @@
 						"context": {
 							"pluginId": "joplin-plugin-knowledge-graph"
 						},
-						"visible": false
+						"visible": true
 					},
 					{
 						"key": "plugin-view-com.github.joplin.kanban-kanban",
 						"context": {
 							"pluginId": "com.github.joplin.kanban"
 						},
-						"visible": true
+						"visible": false
 					}
 				],
 				"visible": true,
@@ -98,7 +98,8 @@
 		"visible": true
 	},
 	"noteVisiblePanes": [
-		"editor"
+		"editor",
+		"viewer"
 	],
 	"sync.target": 7,
 	"dateFormat": "YYYY.MM.DD",
@@ -115,5 +116,5 @@
 		"title": false,
 		"order": false
 	},
-	"layoutButtonSequence": 1
+	"layoutButtonSequence": 2
 }
