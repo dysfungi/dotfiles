@@ -51,7 +51,7 @@ runtime! vimrc_example.vim
 ""
 ""
 "" SECTIONS
-""   -> Plugin Manager (Dein)
+""   -> Plugin Manager
 ""   -> General
 ""   -> VIM user interface
 ""   -> Search
@@ -81,7 +81,7 @@ let g:mapleader = ","
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Plugin Manager (Dein)
+" => Plugin Manager (https://github.com/junegunn/vim-plug)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 if &compatible
@@ -362,15 +362,7 @@ Plug 'rbtnn/vim-game_engine'
 Plug 'rbtnn/vim-mario'
 
 " Required:
-call plug#end()  "dein#end()
-
-" If you want to install not installed plugins on startup.
-"if dein#check_install()
-"  call dein#install()
-"endif
-"
-" Clean unused plugins.
-"call map(dein#check_clean(), "delete(v:val, 'rf')")
+call plug#end()
 
 " Required:
 filetype plugin indent on
