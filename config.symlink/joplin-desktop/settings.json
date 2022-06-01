@@ -81,14 +81,6 @@
 						"context": {
 							"pluginId": "com.gitlab.BeatLink.joplin-plugin-agenda"
 						},
-						"visible": false,
-						"height": 857
-					},
-					{
-						"key": "plugin-view-com.DanteCoder.NoteVariables-panel_1",
-						"context": {
-							"pluginId": "com.DanteCoder.NoteVariables"
-						},
 						"visible": false
 					}
 				],
