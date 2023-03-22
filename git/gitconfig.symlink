@@ -62,6 +62,7 @@
         find = !find . -not -path "*/\\.git/*" "${@}"
         changed-files = diff --name-only --no-ext-diff
         ap = add --patch
+        last-file-rev = log --pretty=%H --diff-filter=AM -1 --
 [color]
         diff = auto
         status = auto
