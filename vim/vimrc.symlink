@@ -132,6 +132,9 @@ Plug 'ctrlpvim/ctrlp.vim'
     endif
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     map <F2> :NERDTreeToggle<CR>
+Plug 'scrooloose/vim-slumlord'  " PlantUML inline previews
+Plug 'aklt/plantuml-syntax'  " PlantUML syntax file
+Plug 'mracos/mermaid.vim'  " Mermaid syntax file
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 "" Formatters:
