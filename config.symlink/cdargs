@@ -1,22 +1,23 @@
-box /Users/dmf/Dropbox
-notes /Users/dmf/Dropbox/notes
-docs /Users/dmf/Documents
-code /Users/dmf/Code
-play /Users/dmf/Code/playground
-go /Users/dmf/Code/playground/go
-rust /Users/dmf/Code/playground/rust
-
-www /Users/dmf/Code/defrank.github.io
-
-dot $HOME/.dotfiles
-
-frankish /Users/dmf/Code/frankish
-pet-api /Users/dmf/Code/frankish/petiquette/api
-pet-web /Users/dmf/Code/frankish/petiquette/web
-
-playground /Users/dmf/Code/playground
-pyground /Users/dmf/Code/playground/python
-twilio-quest /Users/dmf/Code/pycon/2018/twilio/quest
-goground /Users/dmf/Code/playground/go
-
-fanai /Users/dmf/Code/fanai
+dot /Users/dfrank/.dotfiles
+docs /Users/dfrank/Documents
+dropbox /Users/dfrank/Dropbox
+notes /Users/dfrank/Dropbox/notes
+riot /Users/dfrank/Dropbox/notes/work/riot
+code /Users/dfrank/Code
+www /Users/dfrank/Code/defrank.github.io
+frankish /Users/dfrank/Code/frankish
+playground /Users/dfrank/Code/playground
+pyground /Users/dfrank/Code/playground/python
+twilio-quest /Users/dfrank/Code/pycon/2018/twilio/quest
+goground /Users/dfrank/Code/playground/go
+www /Users/dfrank/Code/lot
+blueprints /Users/dfrank/Code/blueprints
+lot /Users/dfrank/Code/lot
+lotapi /Users/dfrank/Code/lot/api-service
+mt /Users/dfrank/Code/lot/maintenance-tool
+rs-admin /Users/dfrank/Code/lot/riotstatus-admin
+rs-page /Users/dfrank/Code/lot/riotstatus-page
+noc /Users/dfrank/Code/noc
+nocbot /Users/dfrank/Code/noc/noc-support-goslackbot
+live /Users/dfrank/Code/live-operations
+lime /Users/dfrank/Code/live-operations/lime-monorepo
