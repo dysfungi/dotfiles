@@ -92,7 +92,7 @@
     rebase = true
 [merge]
     # http://vim.wikia.com/wiki/A_better_Vimdiff_Git_mergetool
-    tool = diffconflicts
+    tool = vimdiff3
     conflictStyle = diff3
 [mergetool]
 	keepBackup = false
@@ -100,7 +100,7 @@
 	cmd = diffconflicts vim $BASE $LOCAL $REMOTE $MERGED
 	trustExitCode = true
 [diff]
-    tool = vimdiff2
+    tool = vimdiff3
 [difftool]
     prompt = false
 [branch]
