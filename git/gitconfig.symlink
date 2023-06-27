@@ -5,90 +5,91 @@
     editor = vim
     helper = cache
 [hub]
-        protocol = https
+    protocol = https
 [alias]
-        co = checkout
-        promote = !$DOTFILES/bin/git-promote
-        wtf     = !$DOTFILES/bin/git-wtf
-        rank-contributors = !$DOTFILES/bin/git-rank-contributors
-        count   = !git shortlog -sn
-        s = status -s
-        st = status
-        d = diff
-        f = fetch --prune
-        p = pull --prune
-        dc = diff --cached
-        lg = log -p
-        lgf = log -p --name-only
-        lc = !sh -c 'git log --stat --no-merges \"origin/$(test -z \"${1}\" && echo master || echo \"${1}\")..\" ' -
-        l = log --graph --decorate --abbrev-commit
-        lol = log --graph --decorate --pretty=oneline --abbrev-commit
-        la = log --graph --decorate --pretty=oneline --abbrev-commit --all
-        lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
-        lo = log --decorate --pretty=oneline --abbrev-commit
-        lfo = log --pretty=full --reverse --show-notes=* -p --abbrev-commit origin/master..
-        rdiff = reflog --all -p
-        ls = ls-files -cdmo --exclude-standard
-        compactlog = log --pretty=format:"%h%x09%an%x09%ad%x09%s" --date=short
-        # Show files ignored by git:
-        ign = ls-files -o -i --exclude-standard
-        oldest-ancestor = !zsh -c 'diff --old-line-format= --new-line-format= <(git rev-list --first-parent \"${1:-master}\") <(git rev-list --first-parent \"${2:-HEAD}\") | head -1' -
-        branchdiff = !sh -c \"git diff `git oldest-ancestor`..\"
-        branchlog = !sh -c \"git log `git oldest-ancestor`..\"
-        fm = merge --no-ff
-        bm = merge --no-ff
-        discard = checkout --
-        undo = reset --soft HEAD~1
-        delete = !sh -c \"git push ${1} :${2} && git remote prune ${1}\"
-        deletetag = !sh -c \"git push --delete origin ${1} && git tag -d ${1}\"
-        #abbrev-commit = !sh -c \"git rev-list -n1 --abbrev-commit $($@)\"
-        abbrev-commit = !git rev-list -n1 --abbrev-commit $(test -z \"$@\" && echo HEAD || echo $@)
-        full-commit = !git rev-list -n1 $(test -z \"$@\" && echo HEAD || echo $@)
-        abbrev-count = !sh -c 'git rev-list --all --abbrev=0 --abbrev-commit | awk \"{ a[length] += 1 } END { for (len in a) print len, a[len] }\"'
-        origin = branch -r --list "origin/*"
-        hist = log --graph --pretty=format:'%Cred%h%Creset -%C(magenta)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-        head = !git log --oneline --pretty=format:'%Cred%h%Creset -%C(magenta)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' | head
-        fixup = !sh -c '(git diff-files --quiet || (echo Unstaged changes, please commit or stash with --keep-index; exit 1)) && sha_to_patch=$( git rev-parse $1 ) && git commit --fixup=${sha_to_patch} && git rebase -i --autosquash ${sha_to_patch}^' -
-        com = !sh -c \"git pull && git commit -m '${@}' && git push\"
-        # Files changed since given commit.
-        files = "!sh -c \"git diff-tree --no-commit-id --name-only -r \"$1$(test -n \"${1##*..*}\" && echo \"..HEAD\")\"\""
-        exists = branch -r --contains
-        g = grep --break --heading --line-number
-        current = rev-parse --abbrev-ref HEAD
-        undo-rm = rev-list -n 1 HEAD --
-        fixupstream = !sh -c \"git branch --set-upstream-to='${2:-origin}/${1}' '${1}'\"
-        untrack = branch --unset-upstream
-        pf = push --force-with-lease
-        find = !find . -not -path "*/\\.git/*" "${@}"
-        changed-files = diff --name-only --no-ext-diff
-        ap = add --patch
-        last-file-rev = log --pretty=%H --diff-filter=AM -1 --
+    # https://archive.kernel.org/oldwiki/git.wiki.kernel.org/index.php/Aliases.html#Aliases_with_arguments
+    co = checkout
+    promote = !$DOTFILES/bin/git-promote
+    wtf     = !$DOTFILES/bin/git-wtf
+    rank-contributors = !$DOTFILES/bin/git-rank-contributors
+    count   = !git shortlog -sn
+    s = status -s
+    st = status
+    d = diff
+    f = fetch --prune
+    p = pull --prune
+    dc = diff --cached
+    lg = log -p
+    lgf = log -p --name-only
+    lc = !sh -c 'git log --stat --no-merges \"origin/$(test -z \"${1}\" && echo master || echo \"${1}\")..\" ' -
+    l = log --graph --decorate --abbrev-commit
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    la = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    lo = log --decorate --pretty=oneline --abbrev-commit
+    lfo = log --pretty=full --reverse --show-notes=* -p --abbrev-commit origin/master..
+    rdiff = reflog --all -p
+    ls = ls-files -cdmo --exclude-standard
+    compactlog = log --pretty=format:"%h%x09%an%x09%ad%x09%s" --date=short
+    # Show files ignored by git:
+    ign = ls-files -o -i --exclude-standard
+    oldest-ancestor = !zsh -c 'diff --old-line-format= --new-line-format= <(git rev-list --first-parent \"${1:-master}\") <(git rev-list --first-parent \"${2:-HEAD}\") | head -1' -
+    branchdiff = !sh -c \"git diff `git oldest-ancestor`..\"
+    branchlog = !sh -c \"git log `git oldest-ancestor`..\"
+    fm = merge --no-ff
+    bm = merge --no-ff
+    discard = checkout --
+    undo = reset --soft HEAD~1
+    delete = !sh -c \"git push ${1} :${2} && git remote prune ${1}\"
+    deletetag = !sh -c \"git push --delete origin ${1} && git tag -d ${1}\"
+    #abbrev-commit = !sh -c \"git rev-list -n1 --abbrev-commit $($@)\"
+    abbrev-commit = !git rev-list -n1 --abbrev-commit $(test -z \"$@\" && echo HEAD || echo $@)
+    full-commit = !git rev-list -n1 $(test -z \"$@\" && echo HEAD || echo $@)
+    abbrev-count = !sh -c 'git rev-list --all --abbrev=0 --abbrev-commit | awk \"{ a[length] += 1 } END { for (len in a) print len, a[len] }\"'
+    origin = branch -r --list "origin/*"
+    hist = log --graph --pretty=format:'%Cred%h%Creset -%C(magenta)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    head = !git log --oneline --pretty=format:'%Cred%h%Creset -%C(magenta)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' | head
+    fixup = !sh -c '(git diff-files --quiet || (echo Unstaged changes, please commit or stash with --keep-index; exit 1)) && sha_to_patch=$( git rev-parse $1 ) && git commit --fixup=${sha_to_patch} && git rebase -i --autosquash ${sha_to_patch}^' -
+    com = !sh -c \"git pull && git commit -m '${@}' && git push\"
+    # Files changed since given commit.
+    files = "!sh -c \"git diff-tree --no-commit-id --name-only -r \"$1$(test -n \"${1##*..*}\" && echo \"..HEAD\")\"\""
+    exists = branch -r --contains
+    g = grep --break --heading --line-number
+    current = rev-parse --abbrev-ref HEAD
+    undo-rm = rev-list -n 1 HEAD --
+    fixupstream = !sh -c \"git branch --set-upstream-to='${2:-origin}/${1}' '${1}'\"
+    untrack = branch --unset-upstream
+    pf = push --force-with-lease
+    find = !find . -not -path "*/\\.git/*" "${@}"
+    changed-files = diff --name-only --no-ext-diff
+    ap = add --patch
+    last-file-rev = log --pretty=%H --diff-filter=AM -1 --
 [color]
-        diff = auto
-        status = auto
-        branch = auto
-        ui = true
+    diff = auto
+    status = auto
+    branch = auto
+    ui = true
 [color "diff"]
-        whitespace = red reverse
+    whitespace = red reverse
 [core]
-        excludesfile = ~/.gitignore
-        editor = vim
-        #autocrlf = false
-        #eol = lf
-        whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-        pager = less -FX
+    excludesfile = ~/.gitignore
+    editor = vim
+    #autocrlf = false
+    #eol = lf
+    whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+    pager = less -FX
 [apply]
-        whitespace = nowarn
+    whitespace = nowarn
 [help]
-        autocorrect = 1
+    autocorrect = 1
 [push]
-        # See `git help config` (search for push.default)
-        # for more information on different options of the below setting.
-        #
-        # Setting to git 2.0 default to suppress warning message
-        default = upstream
+    # See `git help config` (search for push.default)
+    # for more information on different options of the below setting.
+    #
+    # Setting to git 2.0 default to suppress warning message
+    default = upstream
 [pull]
-        rebase = true
+    rebase = true
 [merge]
     # http://vim.wikia.com/wiki/A_better_Vimdiff_Git_mergetool
     tool = diffconflicts
@@ -103,12 +104,12 @@
 [difftool]
     prompt = false
 [branch]
-        autosetupmerge = true
-        autosetuprebase = always
+    autosetupmerge = true
+    autosetuprebase = always
 [branch "master"]
-        rebase = true
+    rebase = true
 [grep]
-        lineNumber = true
+    lineNumber = true
 [protocol "keybase"]
 	allow = always
 [init]
