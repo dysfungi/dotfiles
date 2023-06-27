@@ -64,6 +64,11 @@
     changed-files = diff --name-only --no-ext-diff
     ap = add --patch
     last-file-rev = log --pretty=%H --diff-filter=AM -1 --
+    search-logs = "!git log --walk-reflogs --grep=\"$1\" #"
+    search-diffs = "!git log --patch --walk-reflogs -G\"$1\" #"
+    search = "!git log --patch --walk-reflogs --grep=\"$1\" -G\"$1\" #"  # WIP
+    unmerged = diff --name-only --diff-filter=U
+    resolve = mergetool --no-gui --tool=vimdiff3
 [color]
     diff = auto
     status = auto
