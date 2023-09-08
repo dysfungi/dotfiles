@@ -22,5 +22,10 @@ export PYENV_VIRTUALENV_VERBOSE_ACTIVATE=1
 export PATH
 
 # https://github.com/pyenv/pyenv/issues/1737#issuecomment-764506047
-# export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/bzip2/lib"
-# export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/bzip2/include"
+# export LDFLAGS="-L$(brew --prefix)/opt/zlib/lib -L$(brew --prefix)/opt/bzip2/lib"
+# export CPPFLAGS="-I$(brew --prefix)/opt/zlib/include -I$(brew --prefix)/opt/bzip2/include"
+
+# https://github.com/xmlsec/python-xmlsec/issues/80#issuecomment-638859681
+# export LDFLAGS="-L$(brew --prefix)/opt/openssl/lib"
+# export CPPFLAGS="-I$(brew --prefix)/opt/openssl/include"
+# export PKG_CONFIG_PATH="$(brew --prefix)/opt/openssl/lib/pkgconfig"
