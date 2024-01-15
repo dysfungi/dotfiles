@@ -6,6 +6,6 @@ alias cls='clear' # Good 'ol Clear Screen command
 # Reference: http://zsh.sourceforge.net/Guide/zshguide01.html#l1
 alias %=' '
 
-if hash colordiff; then
+if command -v colordiff &>/dev/null; then
     alias diff=colordiff
 fi
