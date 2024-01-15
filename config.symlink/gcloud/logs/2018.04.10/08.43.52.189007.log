@@ -1,0 +1,6 @@
+2018-04-10 08:43:52,191 DEBUG    root            Loaded Command Group: [u'gcloud', u'config']
+2018-04-10 08:43:52,193 DEBUG    root            Loaded Command Group: [u'gcloud', u'config', u'set']
+2018-04-10 08:43:52,197 DEBUG    root            Running [gcloud.config.set] with arguments: [SECTION/PROPERTY: "functions/region", VALUE: "us-west1"]
+2018-04-10 08:43:52,198 INFO     ___FILE_ONLY___ Updated property [functions/region].
+
+2018-04-10 08:43:52,198 INFO     root            Display format: "default"

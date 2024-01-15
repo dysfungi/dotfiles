@@ -1,0 +1,19 @@
+2018-04-10 08:43:59,322 DEBUG    root            Loaded Command Group: [u'gcloud', u'auth']
+2018-04-10 08:43:59,328 DEBUG    root            Loaded Command Group: [u'gcloud', u'auth', u'login']
+2018-04-10 08:43:59,332 DEBUG    root            Running [gcloud.auth.login] with arguments: []
+2018-04-10 08:43:59,673 INFO     ___FILE_ONLY___ Your browser has been opened to visit:
+
+    https://accounts.google.com/o/oauth2/auth?redirect_uri=http%3A%2F%2Flocalhost%3A8085%2F&prompt=select_account&response_type=code&client_id=32555940559.apps.googleusercontent.com&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fappengine.admin+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcompute+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Faccounts.reauth&access_type=offline
+
+
+
+2018-04-10 08:44:09,226 INFO     oauth2client.client Successfully retrieved access token
+2018-04-10 08:44:09,243 WARNING  root            `gcloud auth login` no longer writes application default credentials.
+If you need to use ADC, see:
+  gcloud auth application-default --help
+2018-04-10 08:44:09,244 INFO     ___FILE_ONLY___ 
+You are now logged in as [derek@fanai.io].
+Your current project is [fanai-development].  You can change this setting by running:
+  $ gcloud config set project PROJECT_ID
+
+2018-04-10 08:44:09,244 INFO     root            Display format: "none"

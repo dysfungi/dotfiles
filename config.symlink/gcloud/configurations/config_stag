@@ -1,0 +1,11 @@
+[core]
+account = derek@fanai.io
+project = fanai-staging
+
+[compute]
+zone = us-west1-b
+region = us-west1
+
+[functions]
+region = us-west1
+

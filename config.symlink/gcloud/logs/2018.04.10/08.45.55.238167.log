@@ -1,0 +1,9 @@
+2018-04-10 08:45:55,240 DEBUG    root            Loaded Command Group: [u'gcloud', u'config']
+2018-04-10 08:45:55,242 DEBUG    root            Loaded Command Group: [u'gcloud', u'config', u'configurations']
+2018-04-10 08:45:55,243 DEBUG    root            Loaded Command Group: [u'gcloud', u'config', u'configurations', u'create']
+2018-04-10 08:45:55,246 DEBUG    root            Running [gcloud.config.configurations.create] with arguments: [--activate: "True", CONFIGURATION_NAME: "prod"]
+2018-04-10 08:45:55,247 INFO     ___FILE_ONLY___ Created [prod].
+
+2018-04-10 08:45:55,247 INFO     ___FILE_ONLY___ Activated [prod].
+
+2018-04-10 08:45:55,248 INFO     root            Display format: "none"

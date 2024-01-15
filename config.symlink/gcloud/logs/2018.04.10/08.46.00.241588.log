@@ -1,0 +1,6 @@
+2018-04-10 08:46:00,243 DEBUG    root            Loaded Command Group: [u'gcloud', u'config']
+2018-04-10 08:46:00,246 DEBUG    root            Loaded Command Group: [u'gcloud', u'config', u'set']
+2018-04-10 08:46:00,249 DEBUG    root            Running [gcloud.config.set] with arguments: [SECTION/PROPERTY: "account", VALUE: "derek@fanai.io"]
+2018-04-10 08:46:00,250 INFO     ___FILE_ONLY___ Updated property [core/account].
+
+2018-04-10 08:46:00,250 INFO     root            Display format: "default"

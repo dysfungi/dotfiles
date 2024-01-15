@@ -1,0 +1,17 @@
+2018-04-10 08:46:42,037 DEBUG    root            Loaded Command Group: [u'gcloud', u'config']
+2018-04-10 08:46:42,042 DEBUG    root            Loaded Command Group: [u'gcloud', u'config', u'list']
+2018-04-10 08:46:42,048 DEBUG    root            Running [gcloud.config.list] with arguments: []
+2018-04-10 08:46:42,052 INFO     root            Display format: "config"
+2018-04-10 08:46:42,052 INFO     ___FILE_ONLY___ [compute]
+region = us-west1
+zone = us-west1-b
+[core]
+account = derek@fanai.io
+disable_usage_reporting = True
+project = fanai-production
+[functions]
+region = us-west1
+
+2018-04-10 08:46:42,053 INFO     ___FILE_ONLY___ 
+Your active configuration is: [prod]
+

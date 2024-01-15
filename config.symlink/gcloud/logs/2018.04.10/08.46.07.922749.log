@@ -1,0 +1,6 @@
+2018-04-10 08:46:07,924 DEBUG    root            Loaded Command Group: [u'gcloud', u'config']
+2018-04-10 08:46:07,927 DEBUG    root            Loaded Command Group: [u'gcloud', u'config', u'set']
+2018-04-10 08:46:07,930 DEBUG    root            Running [gcloud.config.set] with arguments: [SECTION/PROPERTY: "project", VALUE: "fanai-production"]
+2018-04-10 08:46:07,931 INFO     ___FILE_ONLY___ Updated property [core/project].
+
+2018-04-10 08:46:07,932 INFO     root            Display format: "default"
