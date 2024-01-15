@@ -1,6 +1,0 @@
-2018-04-10 08:40:55,569 DEBUG    root            Loaded Command Group: [u'gcloud', u'config']
-2018-04-10 08:40:55,573 DEBUG    root            Loaded Command Group: [u'gcloud', u'config', u'set']
-2018-04-10 08:40:55,578 DEBUG    root            Running [gcloud.config.set] with arguments: [SECTION/PROPERTY: "project", VALUE: "fanai-development"]
-2018-04-10 08:40:55,579 INFO     ___FILE_ONLY___ Updated property [core/project].
-
-2018-04-10 08:40:55,580 INFO     root            Display format: "default"

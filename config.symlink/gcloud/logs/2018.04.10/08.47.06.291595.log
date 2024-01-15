@@ -1,7 +1,0 @@
-2018-04-10 08:47:06,294 DEBUG    root            Loaded Command Group: [u'gcloud', u'config']
-2018-04-10 08:47:06,296 DEBUG    root            Loaded Command Group: [u'gcloud', u'config', u'configurations']
-2018-04-10 08:47:06,299 DEBUG    root            Loaded Command Group: [u'gcloud', u'config', u'configurations', u'activate']
-2018-04-10 08:47:06,303 DEBUG    root            Running [gcloud.config.configurations.activate] with arguments: [CONFIGURATION_NAME: "dev"]
-2018-04-10 08:47:06,303 INFO     ___FILE_ONLY___ Activated [dev].
-
-2018-04-10 08:47:06,304 INFO     root            Display format: "none"
