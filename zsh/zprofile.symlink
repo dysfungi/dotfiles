@@ -15,4 +15,4 @@ done
 unset profile_files
 unsetopt nullglob
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(brew shellenv)"
