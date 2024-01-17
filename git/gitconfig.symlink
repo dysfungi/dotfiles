@@ -69,6 +69,7 @@
     search = "!git log --patch --walk-reflogs --grep=\"$1\" -G\"$1\" #"  # WIP
     unmerged = diff --name-only --diff-filter=U
     resolve = mergetool --no-gui --tool=vimdiff3
+    untrack = rm --cached
 [color]
     diff = auto
     status = auto
