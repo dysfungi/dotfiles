@@ -4,6 +4,7 @@
 [credential]
     editor = vim
     helper = cache
+	helper = /usr/local/share/gcm-core/git-credential-manager
 [hub]
     protocol = https
 [alias]
@@ -120,3 +121,5 @@
 	allow = always
 [init]
 	defaultBranch = main
+[credential "https://dev.azure.com"]
+	useHttpPath = true
