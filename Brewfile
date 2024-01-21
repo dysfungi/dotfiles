@@ -2,81 +2,110 @@ cask_args appdir: '/Applications'
 
 tap 'homebrew/bundle'
 
+# Fun
 brew 'archey4'
 brew 'ascii'
-brew 'asdf'
-brew 'autopep8'
+brew 'cowsay'
+brew 'fortune'
+brew 'sl'
+
+# CLI
 brew 'bash'
 brew 'cdargs'
 brew 'cheat'
 brew 'colordiff'
 brew 'coreutils'
-brew 'cowsay'
-brew 'csvq'
+brew 'direnv'
+brew 'gawk'
+brew 'grc'
+brew 'gnu-tar'
+brew 'parallel'
+brew 'tmux'
+brew 'xz'
+
+# TUI
+brew 'jp2a'
+brew 'libcaca'
+brew 'spaceman-diff'
+brew 'spark'
+
+# Search
+brew 'fzf'
+brew 'grep'
+brew 'ripgrep'
+
+# Internet
 brew 'curl'
 brew 'dict'
-brew 'direnv'
-brew 'flake8'
-brew 'fortune'
-brew 'fzf'
-#brew 'haskell-stack'
-brew 'httpie'
-brew 'gawk'
 brew 'gdrive'
-brew 'gettext'
-brew 'git'
-brew 'gnu-tar'
-brew 'go'
-brew 'grc'
-brew 'grep'
 brew 'httpie'
+brew 'openssh'
+brew 'rsync'
+brew 'squid'
+brew 'vim'
+brew 'wget'
+brew 'youtube-dl'
+
+# Programming
+brew 'git'
 brew 'jesseduffield/lazydocker/lazydocker'
 brew 'jesseduffield/lazygit/lazygit'
-brew 'jp2a'
-brew 'jq'
 brew 'just'
-brew 'isort'
-brew 'libcaca'
-brew 'libgit2'
-brew 'openssh'
-brew 'openssl'
-brew 'opentofu'
 brew 'make'
+brew 'pre-commit'
+brew 'source-highlight'
+brew 'trivy'
+
+# Infrastructure
+brew 'opentofu'
+brew 'vultr'
+
+# Databases
+brew 'sqlite'
+brew 'sqlite3'
+
+# Languages
+brew 'asdf'
+
+# CSV
+brew 'csvq'
+
+# Go
+brew 'go'
+
+# Haskell
+#brew 'haskell-stack'
+
+# JSON
+brew 'jq'
+
+# Python
+brew 'autopep8'
+brew 'flake8'
+brew 'gettext'
+brew 'isort'
+brew 'openssl'
 brew 'mypy'
 brew 'pandoc'
-brew 'parallel'
-brew 'pre-commit'
 brew 'pylint'
 brew 'python3'
 brew 'readline'
-brew 'ripgrep'
-brew 'roundup'
-brew 'rsync'
-brew 'rustup-init'
-brew 'shellcheck'
-brew 'sl'
-brew 'source-highlight'
-brew 'spaceman-diff'
-brew 'spark'
-brew 'sqlite'
-brew 'sqlite3'
-brew 'squid'
-brew 'tcl-tk'
-brew 'terraform-docs'
-brew 'tflint'
-brew 'tfupdate'
-brew 'tmux'
-brew 'trivy'
-brew 'vim'
-brew 'vultr'
-brew 'wget'
-brew 'xonsh'
-brew 'xz'
-brew 'youtube-dl'
-brew 'yq'
 brew 'zlib'
+
+# Rust
+brew 'rustup-init'
+
+# Shell
+brew 'shellcheck'
+brew 'tcl-tk'
+brew 'xonsh'
 brew 'zsh'
 brew 'zsh-completions'
+
+# YAML
+brew 'yq'
+
+# Applications
 
 cask '1password'
 cask '1password-cli'
