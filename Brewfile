@@ -1,6 +1,16 @@
 cask_args appdir: '/Applications'
 
 tap 'homebrew/bundle'
+tap 'homebrew/cask-fonts'
+
+# Fonts
+brew 'font-andale-mono'
+brew 'font-fira-code'
+brew 'font-inconsolata'
+brew 'font-iosevka'
+brew 'font-monofur-nerd-font'
+brew 'font-profontx'
+brew 'font-source-code-pro'
 
 # Fun
 brew 'archey4'
