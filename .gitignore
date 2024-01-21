@@ -4,6 +4,9 @@ op/config
 # Git
 git/gitconfig.local.symlink
 
+# HTTPie
+httpie/
+
 # Vim
 .netrwhist
 vim/vim.symlink/backups/
