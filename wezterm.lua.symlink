@@ -19,7 +19,7 @@ config.font = wezterm.font_with_fallback {
 
 -- Set window opacity
 -- https://blog-v2.ansidev.xyz/posts/2023-05-18-wezterm-cheatsheet#set-window-opacity
-config.window_background_opacity = 0.7
+config.window_background_opacity = 0.95
 
 config.debug_key_events = false
 -- https://www.reddit.com/r/tmux/comments/13rq7wn/wezterm_users_my_config_to_free_up_keybindings/
