@@ -1,7 +1,11 @@
-[![Tasks Ready](https://badge.waffle.io/defrank/dotfiles.svg?label=ready&title=Ready)](http://waffle.io/defrank/dotfiles?label=ready)
-[![Tasks in Progress](https://badge.waffle.io/defrank/dotfiles.svg?label=wip&title=WIP)](http://waffle.io/defrank/dotfiles?label=wip)
+# dmf dotfiles
 
-# holman does dotfiles
+Forked from https://github.com/holman/dotfiles, but now steering in the
+direction of [yadm](https://yadm.io/docs/bootstrap)
+
+---
+---
+---
 
 Your dotfiles are how you personalize your system. These are mine.
 
