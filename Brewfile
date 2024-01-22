@@ -26,12 +26,14 @@ brew 'cheat'
 brew 'colordiff'
 brew 'coreutils'
 brew 'direnv'
-brew 'gawk'
+brew 'gawk' # https://asdf-vm.com/guide/getting-started.html#_4-install-a-plugin
 brew 'grc'
 brew 'gnu-tar'
+#brew 'clintmod/formulas/macprefs' # https://github.com/clintmod/macprefs/issues
 brew 'parallel'
 brew 'tmux'
 brew 'xz'
+brew 'yadm'
 
 # TUI
 brew 'jp2a'
@@ -55,6 +57,9 @@ brew 'squid'
 brew 'vim'
 brew 'wget'
 brew 'youtube-dl'
+
+# Security
+brew 'gpg' # https://asdf-vm.com/guide/getting-started.html#_4-install-a-plugin
 
 # Programming
 brew 'git'
