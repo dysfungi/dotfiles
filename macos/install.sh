@@ -5,3 +5,12 @@
 
 echo "› sudo softwareupdate -i -a"
 sudo softwareupdate -i -a
+
+# Python
+# Defaults
+defaultPython=3.12-dev
+asdf add python
+asdf install python "$defaultPython"
+asdf global python "$defaultPython"
+# Extra
+asdf install python 3.13-dev
