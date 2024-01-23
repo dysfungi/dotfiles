@@ -70,6 +70,7 @@ brew 'make'
 brew 'pre-commit'
 brew 'source-highlight'
 brew 'trivy'
+brew 'watchexec'
 
 # Infrastructure
 brew 'opentofu'
