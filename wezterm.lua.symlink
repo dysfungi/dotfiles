@@ -1,6 +1,7 @@
 local wezterm = require 'wezterm'
 local config = {}
 
+config.term = "wezterm"
 config.enable_tab_bar = true
 -- config.color_scheme = 'Batman'
 
