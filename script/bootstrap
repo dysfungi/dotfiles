@@ -141,6 +141,10 @@ setup_gitconfig
 install_dotfiles
 
 # If we're on a Mac, let's install and setup homebrew.
+if ! command -v brew; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    export PATH="/opt/homebrew/bin:$PATH"
+fi
 if [ "$(uname -s)" == "Darwin" ]
 then
   info "installing dependencies"
