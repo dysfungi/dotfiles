@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-echo hi
+echo "Bootstrapping asdf"

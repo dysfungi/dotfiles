@@ -11,4 +11,4 @@ echo "› brew bundle --global"
 brew bundle --global
 
 # find the installers and run them iteratively
-find . -name install.sh -exec sh -c "{}" \;
+find . -name install.sh -exec echo "Bootstrapping with {}" \; -exec sh -c "{}" \;

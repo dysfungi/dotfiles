@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+echo "Bootstrapping Python"
+
 defaultPython=3.12-dev
 
 asdf plugin add python
