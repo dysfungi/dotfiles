@@ -99,6 +99,9 @@ brew "go"
 # JSON
 brew "jq"
 
+# NodeJS
+brew "yarn"
+
 # Python
 brew "autopep8"
 brew "flake8"
