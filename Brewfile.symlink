@@ -30,6 +30,7 @@ brew "colordiff"
 brew "coreutils"
 brew "direnv"
 brew "gawk" # https://asdf-vm.com/guide/getting-started.html#_4-install-a-plugin
+brew "gnu-sed"
 brew "grc"
 brew "gnu-tar"
 #brew "clintmod/formulas/macprefs" # https://github.com/clintmod/macprefs/issues

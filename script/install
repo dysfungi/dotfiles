@@ -7,7 +7,7 @@ set -e
 cd "$(dirname $0)"/..
 
 # Run Homebrew through the Brewfile
-echo "› brew bundle"
+echo "› brew bundle --global"
 brew bundle --global
 
 # find the installers and run them iteratively
