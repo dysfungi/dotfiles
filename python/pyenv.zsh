@@ -19,7 +19,6 @@ fi
 
 #export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PYENV_VIRTUALENV_VERBOSE_ACTIVATE=1
-export PATH
 
 # https://github.com/pyenv/pyenv/issues/1737#issuecomment-764506047
 # export LDFLAGS="-L$(brew --prefix)/opt/zlib/lib -L$(brew --prefix)/opt/bzip2/lib"
