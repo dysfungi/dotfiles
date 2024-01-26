@@ -1,3 +1,5 @@
+#!/bin/sh
+
 fontDir="$HOME/Library/Fonts"
 case "$(uname -s)" in
     Darwin)
