@@ -317,7 +317,7 @@ Plug 'chase/vim-ansible-yaml'
 " Go:
 "Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
-" Javascript:
+" Node/Javascript:
 "Plug 'vim-scripts/IndentAnything'
 "Plug 'pangloss/vim-javascript'
 "Plug 'jpo/vim-railscasts-theme'
