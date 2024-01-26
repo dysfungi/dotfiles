@@ -146,7 +146,13 @@ if command -v brew >/dev/null; then
 else
     info "installing homebrew"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    export PATH="/opt/homebrew/bin:$PATH"
+    if command -v brew >/dev/null; then
+        eval "$(brew shellenv)"
+    elif [ -d "/opt/homebrew/bin" ]; then
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+    else
+        fail "Cannot find Homebrew in path!"
+    fi
     success "homebrew is installed"
 fi
 
