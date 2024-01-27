@@ -23,3 +23,13 @@ if ! command -v keyconjurer >/dev/null; then
     fi
 fi
 keyconjurer login
+
+
+# TODO: figure out how to download
+# https://gh.riotgames.com/pages/rcluster/rcluster/tutorials/gandalf-tutorial/gandalf-cli/#get-the-gandalf-cli
+# https://gh.riotgames.com/rcluster/gandalf/releases
+#if ! command -v gandalf >/dev/null; then
+#    wget --output-document="-" "https://gh.riotgames.com/rcluster/gandalf/releases/latest/download/darwin-amd64-gandalf.tar.bz2" \
+#        | sudo tar --bzip2 --dir="/usr/local/bin" --extract --file="-" --verbose
+#    sudo chmod +x "/usr/local/bin/gandalf"
+#fi
