@@ -928,8 +928,8 @@ au FileType c,h  setlocal ai sw=4 ts=4 noexpandtab cindent omnifunc=ccomplete#Co
 au FileType c,h  color pablo
 
 " Python
-au FileType python setlocal colorcolumn=80
-au FileType python setlocal tw=80
+au FileType python setlocal colorcolumn=88
+au FileType python setlocal tw=88
 au FileType python setlocal ai expandtab
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
     "inoremap <C-space> <C-x><C-o>
@@ -941,8 +941,8 @@ autocmd BufRead *.py setlocal nocindent
 " https://codissimo.wordpress.com/2011/01/11/enhancing-vim-as-an-htmljscssphp-editor/
 "
 "   Color scheme and font
-au FileType javascript,php setlocal colorcolumn=80
-au FileType javascript,php setlocal tw=80
+au FileType javascript,php setlocal colorcolumn=88
+au FileType javascript,php setlocal tw=88
 au FileType html,css setlocal colorcolumn=100
 au FileType html,css setlocal tw=100
 autocmd FileType javascript,html,css,php colorscheme railscasts
@@ -1042,9 +1042,9 @@ endfunction
 " Highlight excess line length
 augroup vimrc_autocmds
     autocmd!
-    " highlight characters past column 80
+    " highlight characters past column 88
     autocmd FileType python highlight Excess ctermbg=DarkGrey guibg=Black
-    "autocmd FileType python match Excess /\%80v.*/
+    "autocmd FileType python match Excess /\%88v.*/
     autocmd FileType python set nowrap
 augroup END
 
