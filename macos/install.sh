@@ -4,13 +4,11 @@
 # yeah, let's do that.
 
 echo "› sudo softwareupdate -i -a"
-sudo softwareupdate -i -a
+sudo softwareupdate --install --all
 
-# Python
-# Defaults
-defaultPython=3.12-dev
-asdf add python
-asdf install python "$defaultPython"
-asdf global python "$defaultPython"
-# Extra
-asdf install python 3.13-dev
+# https://gist.github.com/mutin-sa/eea1c396b1e610a2da1e5550d94b0453
+echo "Updating time servers"
+sudo tee /etc/ntp.conf <<-EOF
+server pool.ntp.org
+server time.cloudflare.com
+EOF
