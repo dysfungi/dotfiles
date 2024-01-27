@@ -1,0 +1,10 @@
+dotenv pip.env
+
+get_aws_cred() {
+    aws --profile="product-services" configure get "$1"
+}
+
+watch_file "$HOME/.aws/credentials"
+export AWS_ACCESS_KEY_ID="$(get_aws_cred aws_access_key_id)"
+export AWS_SECRET_ACCESS_KEY="$(get_aws_cred aws_secret_access_key)"
+export AWS_SESSION_TOKEN="$(get_aws_cred aws_session_token)"
