@@ -34,6 +34,7 @@ brew "gnu-sed"
 brew "grc"
 brew "gnu-tar"
 #brew "clintmod/formulas/macprefs" # https://github.com/clintmod/macprefs/issues
+brew "moreutils"
 brew "parallel"
 brew "tmux"
 brew "xz"
