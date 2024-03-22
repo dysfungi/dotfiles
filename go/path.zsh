@@ -1,5 +1,5 @@
 if [[ "$(uname -s)" = Darwin ]]; then
-    export GOROOT=/usr/local/opt/go/libexec
+    export GOROOT="$(brew --prefix)/opt/go/libexec"
 else
     export GOROOT=/usr/local/go
 fi

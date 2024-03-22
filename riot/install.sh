@@ -1,5 +1,7 @@
 #!/bin/sh
 
+brew bundle --file="$(dirname "$0")/Brewfile"
+
 # TODO: make this a Brew tap? careful with security though
 # https://keyconjurer.security.riotgames.com/
 if ! command -v keyconjurer >/dev/null; then
@@ -23,6 +25,7 @@ if ! command -v keyconjurer >/dev/null; then
     fi
 fi
 keyconjurer login
+keyconjurer accounts
 
 
 # TODO: figure out how to download

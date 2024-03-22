@@ -1,17 +1,20 @@
 discoverous() {
     # https://gh.riotgames.com/shared-static-data/service-discovery/blob/master/discovery_servers.json
-    local discName="${1:?discovery server name/alias is required}"
-    local appName="${2:?RFC-190 application name is required}"
+    local datacenterName="${1:?discovery server name/alias is required}"
+    local appName="${2}"
     local appLoc="${3}"
+
+    local relPath="v2/apps"
+    if [[ -n "${appName}" ]]; then
+        relPath="${relPath}/${appName}"
+    fi
 
     local -a query
     if [[ -n "${appLoc}" ]]; then
         query+="location==${appLoc}"
     fi
 
-    local -a discBaseUrls=( $(dig +short TXT "${discName}discovery.service.riotgames.com" | tr -d '"' | tr ',' $'\n') )
-    for discBaseUrl in "${discBaseUrls[@]}"; do
-        http --check-status --ignore-stdin GET "${discBaseUrl}/v2/apps/${appName}" "${query[@]}"
-        return $?
-    done
+    local discBaseUrl="$(dig +short TXT "${datacenterName}discovery.service.riotgames.com" | jq --raw-output 'split(",")[0]')"
+    http --check-status --ignore-stdin GET "${discBaseUrl}/${relPath}" "${query[@]}"
+    return $?
 }
