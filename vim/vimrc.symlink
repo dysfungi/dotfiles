@@ -316,6 +316,9 @@ Plug 'chase/vim-ansible-yaml'
 
 "" Programming Languages:
 
+" F#
+Plug 'ionide/Ionide-vim'
+
 " Go:
 "Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
