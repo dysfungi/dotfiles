@@ -92,6 +92,9 @@ brew "asdf"
 # CSV
 brew "csvq"
 
+# F# (.NET)
+cask "dotnet-sdk"
+
 # Go
 brew "go"
 
