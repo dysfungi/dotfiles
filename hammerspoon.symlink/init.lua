@@ -2,9 +2,6 @@
 -- https://github.com/kovidgoyal/kitty/issues/45#issuecomment-1097554906
 hs.hotkey.bind({"ctrl"}, "space", function()
 
-  -- Get current space 
-  local currentSpace = hs.spaces.focusedSpace()
-
   -- Get wezterm app
   local app = hs.application.get("wezterm")
 
@@ -21,8 +18,6 @@ hs.hotkey.bind({"ctrl"}, "space", function()
 
       -- If there is a main window somewhere, bring it to current space and to front
       else
-          -- First move the main window to the current space
-          hs.spaces.moveWindowToSpace(app:mainWindow(), currentSpace)
           -- Activate the app
           app:activate()
           -- Raise the main window and position correctly
