@@ -1,0 +1,9 @@
+autopep8
+bandit
+doit
+flake8
+ipython
+isort
+mypy
+pdbpp
+pyflakes
