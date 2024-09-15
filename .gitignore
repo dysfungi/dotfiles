@@ -7,6 +7,10 @@ git/gitconfig.local.symlink
 # HTTPie
 httpie/
 
+# Node
+node_modules/
+yarn.lock
+
 # Vim
 .netrwhist
 vim/vim.symlink/backups/
