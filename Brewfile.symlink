@@ -40,6 +40,10 @@ brew "tmux"
 brew "xz"
 brew "yadm"
 
+# Linters
+brew "markdownlint-cli"
+brew "proselint"
+
 # TUI
 brew "jp2a"
 brew "libcaca"
