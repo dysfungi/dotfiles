@@ -159,7 +159,7 @@ Plug 'freitass/todo.txt-vim'
 "" Language Servers (LSPs)
 
 """ ALE
-Plug 'dense-analysis/ale'
+Plug 'dense-analysis/ale', {'for': 'vim', 'do': 'yarn global add vim-language-server'}
     nmap <silent> <C-[> <Plug>(ale_previous_wrap)
     nmap <silent> <C-]> <Plug>(ale_next_wrap)
     let g:ale_completion_autoimport = 1
@@ -303,12 +303,7 @@ Plug 'mzlogin/vim-markdown-toc'
                         \ 'fold':                    { 'enable': 0,
                         \                              'components': ['toc', 'fence'] },
                         \ }
-Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'}
-    let g:instant_markdown_autoscroll = 0
-    let g:instant_markdown_autostart = 1
-    let g:instant_markdown_slow = 1
-    let g:instant_markdown_allow_external_content = 1
-    let g:instant_markdown_mermaid = 1
+Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn global add instant-markdown-d'}
 
 " YAML:
 Plug 'chase/vim-ansible-yaml'

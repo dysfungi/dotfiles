@@ -42,6 +42,7 @@ brew "yadm"
 
 # Linters
 brew "markdownlint-cli"
+brew "prettier"
 brew "proselint"
 
 # TUI

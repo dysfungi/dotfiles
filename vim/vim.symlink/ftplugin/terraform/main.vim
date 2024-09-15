@@ -14,5 +14,3 @@ setlocal smartindent
 setlocal smarttab
 setlocal tabstop=2
 setlocal textwidth=88
-
-let b:ale_fixers = ['remove_trailing_lines', 'terraform', 'trim_whitespace']
