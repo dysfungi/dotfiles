@@ -101,6 +101,7 @@ call plug#begin(expand('~/.vim/plugged'))
 "" Generic:
 "Plug 'L9'                            " utilities for programming in VIM
 "Plug 'Gundo'                         " Graphical undo
+Plug 'sheerun/vim-polyglot'
 
 "" Buffers And File System:
 "Plug 'fholgado/minibufexpl.vim'      " buffer explorer
@@ -337,6 +338,9 @@ Plug 'NoahTheDuke/vim-just'
 "Plugin 'kana/vim-textobj-indent'
 "Plug 'Twinside/vim-haskellConceal'
 "autocmd BufWritePost *.hs GhcModCheckAndLintAsync
+
+" HCL/Terraform:
+Plug 'hashivim/vim-terraform'
 
 " Python:
 "Plug 'klen/python-mode'
@@ -873,11 +877,6 @@ if has('autocmd')
 
   " configure various extensions
   let git_diff_spawn_mode=2
-
-  " improved formatting for markdown
-  " http://plasticboy.com/markdown-vim-mode/
-  autocmd BufRead *.mkd setlocal ai formatoptions=tcroqn2 comments=n:>
-  autocmd BufRead ~/.blog/entries/* setlocal ai formatoptions=tcroqn2 comments=n:>
 endif
 
 function! WhichEnv() abort
@@ -965,9 +964,6 @@ autocmd FileType javascript,css,php setlocal incsearch
 
 " Confluence Wiki
 au FileType confluencewiki setlocal tw=120 colorcolumn=120
-
-" Markdown
-au FileType markdown setlocal shiftwidth=2 tabstop=4 softtabstop=2
 
 " YAML
 au FileType ansible,yaml setlocal sw=2 ts=2 sts=2 et

@@ -8,7 +8,7 @@ setlocal colorcolumn=88
 setlocal comments="b:#,://,:/*"
 setlocal commentstring="/* %s */"
 setlocal expandtab
-setlocal nocindent
+setlocal cindent
 setlocal shiftwidth=2
 setlocal smartindent
 setlocal smarttab
