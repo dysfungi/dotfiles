@@ -20,3 +20,9 @@ alias cd...='cd ../../..'
 
 # working directory
 alias cwd='echo "${PWD##*/}"'
+
+# rust-parallel
+alias rp='rust-parallel'
+alias rpar='rust-parallel'
+alias rparallel='rust-parallel'
+alias parallelr='rust-parallel'

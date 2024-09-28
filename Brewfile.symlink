@@ -36,6 +36,7 @@ brew "gnu-tar"
 #brew "clintmod/formulas/macprefs" # https://github.com/clintmod/macprefs/issues
 brew "moreutils"
 #brew "parallel" # already part of moreutils
+brew "rust-parallel"
 brew "tmux"
 brew "xz"
 brew "yadm"
