@@ -370,6 +370,18 @@ Plug 'jmcantrell/vim-virtualenv'
 Plug 'rbtnn/vim-game_engine'
 Plug 'rbtnn/vim-mario'
 
+""""""""""""""""""""""""""""""
+" Practical VIM by Drew Neil "
+""""""""""""""""""""""""""""""
+" Chapter 2: Normal Mode
+" Tip 12: Combine and Conquer
+Plug 'tpope/vim-commentary'         " comment commands: gc{motion}
+Plug 'kana/vim-textobj-user'        " https://github.com/kana/vim-textobj-entire/wiki
+Plug 'kana/vim-textobj-entire'      " entire file text objects: ie ae
+"" END BOOK RECOMMENDATIONS ""
+""""""""""""""""""""""""""""""
+
+
 " Required:
 call plug#end()
 

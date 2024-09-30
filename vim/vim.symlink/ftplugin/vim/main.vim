@@ -6,6 +6,7 @@ let b:did_ftplugin = 1
     setlocal autoindent
     setlocal colorcolumn=88
 setlocal comments=":\""
+setlocal commentstring="\" %s"
 setlocal expandtab
 setlocal nocindent
 setlocal shiftwidth=4
