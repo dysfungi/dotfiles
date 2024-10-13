@@ -26,3 +26,7 @@ alias rp='rust-parallel'
 alias rpar='rust-parallel'
 alias rparallel='rust-parallel'
 alias parallelr='rust-parallel'
+
+alias web='python -m webbrowser'
+alias webn='web -n'
+alias webt='web -t'
