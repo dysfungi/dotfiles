@@ -15,6 +15,7 @@ pdbpp
 poetry
 pydantic
 pydantic-settings
+pre-commit
 pyflakes
 pytest
 requests
