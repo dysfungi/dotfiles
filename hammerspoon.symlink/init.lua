@@ -39,6 +39,13 @@ hs.hotkey.bind({"ctrl"}, "space", function()
             if not hs.spaces.moveWindowToSpace(weztermWindowId, primaryActiveSpaceId, true) then
                 print("ERROR: Could not move window " .. weztermWindowId .. " to space " .. primaryActiveSpaceId)
             end
+            -- TODO: https://gist.github.com/jdtsmith/8f08cf22a7177884b437cd25c0fba7d5
+            local zoomPoint = hs.geometry(weztermWindow:zoomButtonRect())
+            local safePoint = zoomPoint:move({-1,-1}).topleft
+            -- hs.eventtap.event.newMouseEvent(hs.eventtap.event.types.leftMouseDown, safePoint):post()
+            -- hs.timer.waitUntil(
+            --     function () return hs.spaces.windowSpaces(weztermWindow)[1]~=initialSpace end,
+            -- )
             print("Moved window " .. weztermWindowId .. " to space " .. primaryActiveSpaceId)
             wezterm:activate()
         end
