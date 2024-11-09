@@ -102,6 +102,8 @@ call plug#begin(expand('~/.vim/plugged'))
 "Plug 'L9'                            " utilities for programming in VIM
 "Plug 'Gundo'                         " Graphical undo
 Plug 'sheerun/vim-polyglot'
+    "let g:polyglot_disabled = ['sensible']
+    let g:polyglot_disabled = ['autoindent']
 
 "" Buffers And File System:
 "Plug 'fholgado/minibufexpl.vim'      " buffer explorer
@@ -612,8 +614,7 @@ set autoindent             " Maintain line indent when no file-specific indentin
 "set copyindent
 
 " 1 tab == 4 spaces
-set tabstop=4              " Number of visual spaces per TAB.
-set shiftwidth=4           " Number of spaces indented when reindent operations (>> or <<) are used.
+set tabstop=8              " Number of visual spaces per TAB.
 set softtabstop=4          " Number of spaces in TAB when editing.
 set expandtab              " Convert TABs to spaces.
 set smarttab               " Be smart when using tabs
