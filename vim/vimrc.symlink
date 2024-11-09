@@ -162,7 +162,7 @@ Plug 'freitass/todo.txt-vim'
 "" Language Servers (LSPs)
 
 """ ALE
-Plug 'dense-analysis/ale', {'for': 'vim', 'do': 'yarn global add vim-language-server'}
+Plug 'dense-analysis/ale', {'do': 'yarn global add vim-language-server'}
     nmap <silent> <C-[> <Plug>(ale_previous_wrap)
     nmap <silent> <C-]> <Plug>(ale_next_wrap)
     let g:ale_completion_autoimport = 1
