@@ -95,7 +95,6 @@ brew "sqlite3"
 
 # Languages
 brew "asdf"
-#brew "bazel"
 
 # CSV
 brew "csvq"
@@ -129,7 +128,7 @@ brew "readline"
 brew "zlib"
 
 # Rust
-brew "rustup-init"
+brew "rustup"
 
 # Shell
 brew "shellcheck"
