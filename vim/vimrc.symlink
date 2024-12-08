@@ -155,9 +155,6 @@ Plug 'msanders/snipmate.vim'          " Boilerplate code
     "map <leader>v <Plug>TaskList
     "map T :TaskList<CR>
     "map P :TlistToggle<CR>
-Plug 'freitass/todo.txt-vim'
-    map <leader>t :tabe ~/Dropbox/todo/todo.txt<CR>
-    map <leader>T :!todotxt listall<CR>
 
 "" Language Servers (LSPs)
 
@@ -330,9 +327,12 @@ Plug 'NoahTheDuke/vim-just'
 
 " Haskell:
 "Plug 'lukerandall/haskellmode-vim'
-    au Bufenter *.hs compiler ghc
-    let g:haddock_browser='open'
-    let g:haddock_browser_callformat='%s %s'
+" augroup HaskellCompile
+"     au Bufenter *.hs compiler ghc
+"     let g:haddock_browser='open'
+"     let g:haddock_browser_callformat='%s %s'
+" augroup END
+
 "Plug 'eagletmt/ghcmod-vim'
 "Plug 'dag/vim2hs'
     "let g:haskell_conceal_wide=1
