@@ -4,8 +4,8 @@
 
 setlocal autoindent
 setlocal colorcolumn=88
-setlocal comments=":\""
-setlocal commentstring="\" %s"
+setlocal comments=:\"
+setlocal commentstring=\"\ %s
 setlocal expandtab
 setlocal nocindent
 setlocal shiftwidth=4
