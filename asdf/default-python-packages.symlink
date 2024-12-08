@@ -13,10 +13,11 @@ isort
 mypy
 pdbpp
 poetry
+pre-commit
 pydantic
 pydantic-settings
-pre-commit
 pyflakes
+pynvim
 pytest
 requests
 ruff
