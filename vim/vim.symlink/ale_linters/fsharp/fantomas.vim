@@ -147,10 +147,10 @@ function! ale_linters#fsharp#fantomas#Handle(buffer, lines) abort
     return l:output
 endfunction
 
-call ale#linter#Define('fsharp', {
-\   'name': 'fantomas',
-\   'executable': function('ale_linters#fsharp#fantomas#GetExecutable'),
-\   'cwd': function('ale_linters#fsharp#fantomas#GetCwd'),
-\   'command': function('ale_linters#fsharp#fantomas#RunWithVersionCheck'),
-\   'callback': function('ale_linters#fsharp#fantomas#Handle'),
-\})
+" call ale#linter#Define('fsharp', {
+" \   'name': 'fantomas',
+" \   'executable': function('ale_linters#fsharp#fantomas#GetExecutable'),
+" \   'cwd': function('ale_linters#fsharp#fantomas#GetCwd'),
+" \   'command': function('ale_linters#fsharp#fantomas#RunWithVersionCheck'),
+" \   'callback': function('ale_linters#fsharp#fantomas#Handle'),
+" \})
