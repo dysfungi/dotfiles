@@ -313,6 +313,11 @@ Plug 'chase/vim-ansible-yaml'
 
 " F#
 Plug 'ionide/Ionide-vim'
+    let g:fsharp#fsi_keymap = 'custom' " 'vim-fsharp'
+    let g:fsharp#fsi_keymap_send = '<leader>i'
+    let g:fsharp#fsi_keymap_toggle = '<leader>f'
+    let g:fsharp#show_signature_on_cursor_move = 1
+    let g:fsharp#automatic_workspace_init = 1
 
 " Go:
 "Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
