@@ -196,24 +196,6 @@ Plug 'dense-analysis/ale', {'do': 'yarn global add vim-language-server'}
       autocmd QuitPre * if empty(&buftype) | lclose | endif
     augroup END
 
-"" Syntax Checking:
-"Plug 'scrooloose/syntastic'
-    " https://github.com/vim-syntastic/syntastic#3-recommended-settings
-    set statusline+=%#warningmsg#
-    set statusline+=%{SyntasticStatuslineFlag()}
-    set statusline+=%*
-    let g:syntastic_always_populate_loc_list = 1
-    let g:syntastic_auto_loc_list = 1
-    let g:syntastic_check_on_open = 0
-    let g:syntastic_check_on_wq = 0
-
-    "let g:syntastic_debug = 17
-
-    let g:syntastic_python_checkers = ['flake8', 'mypy']
-    let g:syntastic_python_mypy_args = ['--follow-imports=silent', '--ignore-missing-imports', '--scripts-are-modules']
-    let g:syntastic_python_pylint_args = ['--errors-only']
-
-
 "" News Feeds:
 Plug 'dansomething/vim-hackernews'
 "Plug 'erthalion/vim-reddit'  " Requires +python
