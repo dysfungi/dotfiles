@@ -9,21 +9,21 @@ bindkey -M viins "jk" vi-cmd-mode
 #
 # COMMAND MODE
 # Enter vi insert mode
-bindkey -M vicmd "h" vi-insert # bindkey -M vicmd -s "h" "i"
-bindkey -M vicmd "H" vi-insert-bol # bindkey -M vicmd -s "H" "I"
+bindkey -M vicmd "l" vi-insert # bindkey -M vicmd -s "h" "i"
+bindkey -M vicmd "L" vi-insert-bol # bindkey -M vicmd -s "H" "I"
 #
 # Moving in Colemak
-bindkey -M vicmd "u" up-line-or-history # bindkey -M vicmd -s "u" "k"
-bindkey -M vicmd "e" down-line-or-history # bindkey -M vicmd -s "e" "j"
+bindkey -M vicmd "e" up-line-or-history # bindkey -M vicmd -s "u" "k"
+bindkey -M vicmd "n" down-line-or-history # bindkey -M vicmd -s "e" "j"
 bindkey -M vicmd "i" forward-char # bindkey -M vicmd -s "i" "l"
-bindkey -M vicmd "n" backward-char # bindkey -M vicmd -s "n" "h"
+bindkey -M vicmd "h" backward-char # bindkey -M vicmd -s "n" "h"
 #
-bindkey -M vicmd "l" vi-forward-word-end  # bindkey -M vicmd -s "l" "e"
-bindkey -M vicmd "L" vi-forward-blank-word-end  # bindkey -M vicmd -s "L" "E"
+bindkey -M vicmd "j" vi-forward-word-end  # bindkey -M vicmd -s "l" "e"
+# bindkey -M vicmd "L" vi-forward-blank-word-end  # bindkey -M vicmd -s "L" "E"
 #
 # Undo
-bindkey -M vicmd "z" undo # bindkey -M vicmd -s "z" "u"
-bindkey -M vicmd "Z" vi-undo-change # bindkey -M vicmd -s "Z" "U"
+# bindkey -M vicmd "z" undo # bindkey -M vicmd -s "z" "u"
+# bindkey -M vicmd "Z" vi-undo-change # bindkey -M vicmd -s "Z" "U"
 #bindkey -M vicmd "t" vi-repeat-change # bindkey -M vicmd -s "t" "U"
 #
 # History search
