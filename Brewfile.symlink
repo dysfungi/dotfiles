@@ -44,6 +44,7 @@ brew "yadm"
 # Linters
 brew "markdownlint-cli"
 brew "prettier"
+brew "prettierd"
 brew "proselint"
 brew "terraform-ls"
 brew "vint"
@@ -104,6 +105,7 @@ cask "dotnet-sdk"
 
 # Go
 brew "go"
+brew "gopls"
 
 # Haskell
 #brew "haskell-stack"
@@ -111,7 +113,8 @@ brew "go"
 # JSON
 brew "jq"
 
-# NodeJS
+# Javascript/Typescript
+brew "typescript"
 brew "yarn"
 
 # Python
@@ -124,11 +127,13 @@ brew "mypy"
 brew "pandoc"
 brew "pylint"
 brew "python3"
+brew "pyright"
 brew "readline"
 brew "zlib"
 
 # Rust
 brew "rustup"
+brew "rust-analyzer"
 
 # Shell
 brew "shellcheck"
