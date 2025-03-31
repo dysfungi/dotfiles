@@ -5,5 +5,7 @@
     "light": null,
     "dark": null
   },
-  "externals": []
+  "externals": [
+    "/Users/dmf/Code/ollama-logseq"
+  ]
 }

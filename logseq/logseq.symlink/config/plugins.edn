@@ -1,5 +1,5 @@
 {:logseq-vim-shortcuts {:version "v0.1.22", :repo "vipzhicheng/logseq-plugin-vim-shortcuts", :effect true, :theme false}
- :logseq-todo-plugin {:version "v1.21.0", :repo "ahonn/logseq-plugin-todo", :effect true, :theme false}
+ :logseq-todo-plugin {:version "v1.22.0", :repo "ahonn/logseq-plugin-todo", :effect true, :theme false}
  :logseq-awesome-links {:version "v1.15.16", :repo "yoyurec/logseq-awesome-links", :effect true, :theme false}
  :logseq-diagrams-as-code {:version "0.0.21", :repo "npgrosser/logseq-diagrams-as-code", :effect false, :theme false}
  :logseq-awesome-props {:version "v1.10.0", :repo "yoyurec/logseq-awesome-props", :effect true, :theme false}
